@@ -18,6 +18,7 @@ namespace DispensaryTrack.EF
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set;}
         public DbSet<Rack> Racks { get; set; }
+        public DbSet<PurchaseMedicine> PurchaseMedicines { get;set; }
 
     }
 }

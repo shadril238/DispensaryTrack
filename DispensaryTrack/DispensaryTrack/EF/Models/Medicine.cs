@@ -27,16 +27,13 @@ namespace DispensaryTrack.EF.Models
         public string Status { get; set; }
         [Required, ForeignKey("Category")]
         public int CategoryId { get; set; }
-        [Required, ForeignKey("DistributorCompany")]
-        public int DistId { get; set; }
+        [Required, ForeignKey("PurchaseMedicine")]
+        public int PurchaseId { get; set; }
         [Required, ForeignKey("Rack")]
         public int RackId { get; set; }
-        //[Required, ForeignKey("Employee")]
-        //public int EmpId { get; set; }
 
         public virtual Rack Rack { get; set; }
-        //public virtual Employee Employee { get; set; }
-        public virtual DistributorCompany DistributorCompany { get; set; }
+        public virtual PurchaseMedicine PurchaseMedicine { get; set; }
         public virtual Category Category { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public Medicine()

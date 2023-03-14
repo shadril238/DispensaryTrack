@@ -136,18 +136,15 @@
     <Compile Include="EF\Models\Medicine.cs" />
     <Compile Include="EF\Models\Order.cs" />
     <Compile Include="EF\Models\OrderDetail.cs" />
+    <Compile Include="EF\Models\PurchaseMedicine.cs" />
     <Compile Include="EF\Models\Rack.cs" />
     <Compile Include="EF\PMSContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202303132226422_CustomerTableCreatedOnly.cs" />
-    <Compile Include="Migrations\202303132226422_CustomerTableCreatedOnly.designer.cs">
-      <DependentUpon>202303132226422_CustomerTableCreatedOnly.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303141224586_AllTable_PkFkAdded-V1.cs" />
-    <Compile Include="Migrations\202303141224586_AllTable_PkFkAdded-V1.designer.cs">
-      <DependentUpon>202303141224586_AllTable_PkFkAdded-V1.cs</DependentUpon>
+    <Compile Include="Migrations\202303141952512_AllTable_PkFkAdded-V1.cs" />
+    <Compile Include="Migrations\202303141952512_AllTable_PkFkAdded-V1.designer.cs">
+      <DependentUpon>202303141952512_AllTable_PkFkAdded-V1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -207,11 +204,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202303132226422_CustomerTableCreatedOnly.resx">
-      <DependentUpon>202303132226422_CustomerTableCreatedOnly.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303141224586_AllTable_PkFkAdded-V1.resx">
-      <DependentUpon>202303141224586_AllTable_PkFkAdded-V1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202303141952512_AllTable_PkFkAdded-V1.resx">
+      <DependentUpon>202303141952512_AllTable_PkFkAdded-V1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

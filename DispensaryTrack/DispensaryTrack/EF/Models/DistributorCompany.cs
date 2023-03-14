@@ -23,10 +23,11 @@ namespace DispensaryTrack.EF.Models
         [Required]
         public string Status { get; set; }
 
-        public virtual ICollection<Medicine> Medicines { get; set; }
+        public virtual ICollection<PurchaseMedicine> PurchaseMedicines { get;set; }
+
         public DistributorCompany()
         {
-            Medicines= new List<Medicine>();
+            PurchaseMedicines = new List<PurchaseMedicine>();
         }
     }
 }
