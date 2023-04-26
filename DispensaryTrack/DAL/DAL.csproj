@@ -51,12 +51,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DispensaryContext.cs" />
+    <Compile Include="Interfaces\IRepo.cs" />
+    <Compile Include="Migrations\202304261844169_AllTableDone-V1.0.cs" />
+    <Compile Include="Migrations\202304261844169_AllTableDone-V1.0.designer.cs">
+      <DependentUpon>202304261844169_AllTableDone-V1.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Bill.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\DistributorCompany.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Medicine.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\PurchaseMedicine.cs" />
+    <Compile Include="Models\Rack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202304261844169_AllTableDone-V1.0.resx">
+      <DependentUpon>202304261844169_AllTableDone-V1.0.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

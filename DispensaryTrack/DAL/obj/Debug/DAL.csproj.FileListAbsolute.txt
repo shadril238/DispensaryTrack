@@ -1,0 +1,14 @@
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\bin\Debug\DAL.dll.config
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\bin\Debug\DAL.dll
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\bin\Debug\DAL.pdb
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\bin\Debug\EntityFramework.dll
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\bin\Debug\EntityFramework.xml
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.dll
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.pdb
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.AllTableDoneV10.resources
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
