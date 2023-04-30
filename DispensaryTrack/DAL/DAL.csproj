@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccessFactory.cs" />
     <Compile Include="DispensaryContext.cs" />
     <Compile Include="Interfaces\IRepo.cs" />
     <Compile Include="Migrations\202304261844169_AllTableDone-V1.0.cs" />
@@ -69,6 +70,9 @@
     <Compile Include="Models\PurchaseMedicine.cs" />
     <Compile Include="Models\Rack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repos\CustomerRepo.cs" />
+    <Compile Include="Repos\EmployeeRepo.cs" />
+    <Compile Include="Repos\Repo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -79,9 +83,7 @@
       <DependentUpon>202304261844169_AllTableDone-V1.0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
