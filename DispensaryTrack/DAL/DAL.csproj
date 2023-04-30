@@ -70,8 +70,14 @@
     <Compile Include="Models\PurchaseMedicine.cs" />
     <Compile Include="Models\Rack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repos\BillRepo.cs" />
+    <Compile Include="Repos\CategoryRepo.cs" />
     <Compile Include="Repos\CustomerRepo.cs" />
     <Compile Include="Repos\EmployeeRepo.cs" />
+    <Compile Include="Repos\MedicineRepo.cs" />
+    <Compile Include="Repos\OrderDetailRepo.cs" />
+    <Compile Include="Repos\OrderRepo.cs" />
+    <Compile Include="Repos\RackRepo.cs" />
     <Compile Include="Repos\Repo.cs" />
   </ItemGroup>
   <ItemGroup>

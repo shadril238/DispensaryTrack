@@ -55,7 +55,12 @@
     <Compile Include="DTOs\OrderDTO.cs" />
     <Compile Include="DTOs\RackDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BillService.cs" />
+    <Compile Include="Services\CategoryServices.cs" />
+    <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\EmployeeService.cs" />
+    <Compile Include="Services\MedicineService.cs" />
+    <Compile Include="Services\RackService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

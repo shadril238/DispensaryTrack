@@ -71,3 +71,8 @@ C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DispensaryTrack\obj\Debug
 C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DispensaryTrack\obj\Debug\DispensaryTrack.csproj.CopyComplete
 C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DispensaryTrack\obj\Debug\DispensaryTrack.dll
 C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DispensaryTrack\obj\Debug\DispensaryTrack.pdb
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DispensaryTrack\bin\DAL.dll
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DispensaryTrack\bin\AutoMapper.dll
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DispensaryTrack\bin\DAL.pdb
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DispensaryTrack\bin\DAL.dll.config
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DispensaryTrack\bin\AutoMapper.xml

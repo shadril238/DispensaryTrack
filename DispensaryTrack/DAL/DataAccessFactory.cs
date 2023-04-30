@@ -47,6 +47,11 @@ namespace DAL
         {
             return new OrderDetailRepo();
         }
+        //Rack
+        public static IRepo<Rack, int, bool> RackData()
+        {
+            return new RackRepo();
+        }
 
 
     }
