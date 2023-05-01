@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    public class CategoryServices
+    public class CategoryService
     {
         public static List<CategoryDTO> Get()
         {
