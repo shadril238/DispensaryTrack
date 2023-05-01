@@ -73,6 +73,7 @@
     <Compile Include="Repos\BillRepo.cs" />
     <Compile Include="Repos\CategoryRepo.cs" />
     <Compile Include="Repos\CustomerRepo.cs" />
+    <Compile Include="Repos\DistributorCompanyRepo.cs" />
     <Compile Include="Repos\EmployeeRepo.cs" />
     <Compile Include="Repos\MedicineRepo.cs" />
     <Compile Include="Repos\OrderDetailRepo.cs" />

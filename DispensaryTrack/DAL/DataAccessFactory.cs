@@ -52,6 +52,11 @@ namespace DAL
         {
             return new RackRepo();
         }
+        //DistributorCompany
+        public static IRepo<DistributorCompany, int, bool> DistributorCompanyData()
+        {
+            return new DistributorCompanyRepo();
+        }
 
 
     }
