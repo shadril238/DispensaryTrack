@@ -68,7 +68,7 @@ namespace DispensaryTrack.Controllers
             }
         }
         [HttpPost]
-        [Route("api/employees/update/{id}")]
+        [Route("api/employees/update")]
         public HttpResponseMessage UpdateEmployee(EmployeeDTO employee)
         {
             try

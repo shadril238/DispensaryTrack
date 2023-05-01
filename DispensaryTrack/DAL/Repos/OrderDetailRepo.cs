@@ -36,7 +36,7 @@ namespace DAL.Repos
         public bool Update(OrderDetail obj)
         {
             var exorderdetails = Get(obj.Id);
-            db.Entry(exorderdetails).CurrentValues.SetValues(exorderdetails);
+            db.Entry(exorderdetails).CurrentValues.SetValues(obj);
             return db.SaveChanges() > 0;
         }
     }

@@ -36,7 +36,7 @@ namespace DAL.Repos
         public bool Update(Category obj)
         {
             var excate = Get(obj.Id);
-            db.Entry(excate).CurrentValues.SetValues(excate);
+            db.Entry(excate).CurrentValues.SetValues(obj);
             return db.SaveChanges() > 0;
         }
     }

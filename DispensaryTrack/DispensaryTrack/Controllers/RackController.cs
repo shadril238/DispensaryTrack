@@ -68,7 +68,7 @@ namespace DispensaryTrack.Controllers
             }
         }
         [HttpPost]
-        [Route("api/racks/update/{id}")]
+        [Route("api/racks/update")]
         public HttpResponseMessage UpdateRack(RackDTO rack)
         {
             try

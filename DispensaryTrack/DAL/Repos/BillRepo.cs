@@ -36,7 +36,7 @@ namespace DAL.Repos
         public bool Update(Bill obj)
         {
             var exbill = Get(obj.Id);
-            db.Entry(exbill).CurrentValues.SetValues(exbill);
+            db.Entry(exbill).CurrentValues.SetValues(obj);
             return db.SaveChanges() > 0;
         }
     }

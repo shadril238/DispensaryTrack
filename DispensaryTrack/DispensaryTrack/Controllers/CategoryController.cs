@@ -68,7 +68,7 @@ namespace DispensaryTrack.Controllers
             }
         }
         [HttpPost]
-        [Route("api/categories/update/{id}")]
+        [Route("api/categories/update")]
         public HttpResponseMessage UpdateCategory(CategoryDTO category)
         {
             try
@@ -78,7 +78,7 @@ namespace DispensaryTrack.Controllers
             }
             catch (Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+                return Request.CreateResponse(HttpStatusCode.NotFound, ex.Message);
             }
         }
     }

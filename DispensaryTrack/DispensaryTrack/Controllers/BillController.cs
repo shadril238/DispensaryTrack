@@ -68,7 +68,7 @@ namespace DispensaryTrack.Controllers
             }
         }
         [HttpPost]
-        [Route("api/bills/update/{id}")]
+        [Route("api/bills/update")]
         public HttpResponseMessage UpdateBill(BillDTO bill)
         {
             try
