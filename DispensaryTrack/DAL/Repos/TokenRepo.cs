@@ -25,7 +25,7 @@ namespace DAL.Repos
 
         public Token Get(string tkey)
         {
-            return db.Tokens.Find(tkey);
+            return db.Tokens.FirstOrDefault(t => t.TKey.Equals(tkey));
         }
 
         public bool Insert(Token obj)
