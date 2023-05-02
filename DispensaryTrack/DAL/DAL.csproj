@@ -53,10 +53,23 @@
   <ItemGroup>
     <Compile Include="DataAccessFactory.cs" />
     <Compile Include="DispensaryContext.cs" />
+    <Compile Include="Interfaces\IAuth.cs" />
     <Compile Include="Interfaces\IRepo.cs" />
     <Compile Include="Migrations\202304261844169_AllTableDone-V1.0.cs" />
     <Compile Include="Migrations\202304261844169_AllTableDone-V1.0.designer.cs">
       <DependentUpon>202304261844169_AllTableDone-V1.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305020913426_TokenDB-V1.1.cs" />
+    <Compile Include="Migrations\202305020913426_TokenDB-V1.1.designer.cs">
+      <DependentUpon>202305020913426_TokenDB-V1.1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305020945576_EmailColumnUniqueConstraintAdded-V1.2.cs" />
+    <Compile Include="Migrations\202305020945576_EmailColumnUniqueConstraintAdded-V1.2.designer.cs">
+      <DependentUpon>202305020945576_EmailColumnUniqueConstraintAdded-V1.2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305021004430_EmployeeTable_PK-Email_Updated-V-2.0.cs" />
+    <Compile Include="Migrations\202305021004430_EmployeeTable_PK-Email_Updated-V-2.0.designer.cs">
+      <DependentUpon>202305021004430_EmployeeTable_PK-Email_Updated-V-2.0.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bill.cs" />
@@ -69,6 +82,7 @@
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\PurchaseMedicine.cs" />
     <Compile Include="Models\Rack.cs" />
+    <Compile Include="Models\Token.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\BillRepo.cs" />
     <Compile Include="Repos\CategoryRepo.cs" />
@@ -81,6 +95,7 @@
     <Compile Include="Repos\PurchaseMedicineRepo.cs" />
     <Compile Include="Repos\RackRepo.cs" />
     <Compile Include="Repos\Repo.cs" />
+    <Compile Include="Repos\TokenRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -89,6 +104,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202304261844169_AllTableDone-V1.0.resx">
       <DependentUpon>202304261844169_AllTableDone-V1.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305020913426_TokenDB-V1.1.resx">
+      <DependentUpon>202305020913426_TokenDB-V1.1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305020945576_EmailColumnUniqueConstraintAdded-V1.2.resx">
+      <DependentUpon>202305020945576_EmailColumnUniqueConstraintAdded-V1.2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021004430_EmployeeTable_PK-Email_Updated-V-2.0.resx">
+      <DependentUpon>202305021004430_EmployeeTable_PK-Email_Updated-V-2.0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

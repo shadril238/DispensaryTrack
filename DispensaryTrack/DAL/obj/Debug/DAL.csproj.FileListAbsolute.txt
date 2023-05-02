@@ -12,3 +12,6 @@ C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.dll
 C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.pdb
 C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.AllTableDoneV10.resources
 C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.TokenDBV11.resources
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.EmailColumnUniqueConstraintAddedV12.resources
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.EmployeeTable_PKEmail_UpdatedV20.resources

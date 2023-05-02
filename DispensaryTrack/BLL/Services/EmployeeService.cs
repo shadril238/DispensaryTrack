@@ -25,9 +25,9 @@ namespace BLL.Services
             var mapped = mapper.Map<List<EmployeeDTO>>(data);
             return mapped;
         }
-        public static EmployeeDTO Get(int id)
+        public static EmployeeDTO Get(string email)
         {
-            var data = DataAccessFactory.EmployeeData().Get(id);
+            var data = DataAccessFactory.EmployeeData().Get(email);
             var cfg = new MapperConfiguration(c =>
             {
                 c.CreateMap<Employee, EmployeeDTO>();
@@ -56,9 +56,9 @@ namespace BLL.Services
             var mapped = mapper.Map<Employee>(employee);
             return DataAccessFactory.EmployeeData().Update(mapped);
         }
-        public static bool Delete(int id)
+        public static bool Delete(string email)
         {
-            return DataAccessFactory.EmployeeData().Delete(id);
+            return DataAccessFactory.EmployeeData().Delete(email);
         }
         
     }

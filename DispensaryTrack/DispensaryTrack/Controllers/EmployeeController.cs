@@ -27,11 +27,11 @@ namespace DispensaryTrack.Controllers
         }
         [HttpGet]
         [Route("api/employees/{id}")]
-        public HttpResponseMessage Employee(int id)
+        public HttpResponseMessage Employee(string email)
         {
             try
             {
-                var data = EmployeeService.Get(id);
+                var data = EmployeeService.Get(email);
                 return Request.CreateResponse(HttpStatusCode.OK, data);
             }
             catch (Exception ex)
@@ -41,11 +41,11 @@ namespace DispensaryTrack.Controllers
         }
         [HttpPost]
         [Route("api/employees/delete/{id}")]
-        public HttpResponseMessage DeleteEmployee(int id)
+        public HttpResponseMessage DeleteEmployee(string email)
         {
             try
             {
-                var data = EmployeeService.Delete(id);
+                var data = EmployeeService.Delete(email);
                 return Request.CreateResponse(HttpStatusCode.OK, data);
             }
             catch (Exception ex)

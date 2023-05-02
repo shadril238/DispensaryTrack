@@ -1,4 +1,5 @@
 ﻿//shadril238
+using DAL.Models;
 using DispensaryTrack.Models;
 using System;
 using System.Collections.Generic;
@@ -20,5 +21,6 @@ namespace DispensaryTrack
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Rack> Racks { get; set; }
         public DbSet<PurchaseMedicine> PurchaseMedicines { get; set; }
+        public DbSet<Token> Tokens { get; set; }
     }
 }

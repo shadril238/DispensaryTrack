@@ -1,5 +1,6 @@
 ﻿//shadril238
 using DAL.Interfaces;
+using DAL.Models;
 using DAL.Repos;
 using DispensaryTrack.Models;
 using System;
@@ -28,7 +29,7 @@ namespace DAL
             return new CustomerRepo();
         }
         //Employee
-        public static IRepo<Employee, int, bool> EmployeeData()
+        public static IRepo<Employee, string, bool> EmployeeData()
         {
             return new EmployeeRepo();
         }
@@ -61,6 +62,16 @@ namespace DAL
         public static IRepo<PurchaseMedicine, int, bool> PurchaseMedicineData()
         {
             return new PurchaseMedicineRepo();
+        }
+        //Token
+        public static IRepo<Token, string, bool> TokenData()
+        {
+            return new TokenRepo();
+        }
+        //Auth
+        public static IAuth<bool> AuthData()
+        {
+            return new EmployeeRepo();
         }
 
 

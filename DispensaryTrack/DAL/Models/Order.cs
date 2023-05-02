@@ -19,7 +19,7 @@ namespace DispensaryTrack.Models
         [Required]
         public string Status { get; set; }
         [Required, ForeignKey("Employee")]
-        public int EmpId { get; set; }
+        public string EmpMail { get; set; }
 
         public virtual Employee Employee { get; set; }
         public virtual ICollection<Bill> Bills { get; set; }
