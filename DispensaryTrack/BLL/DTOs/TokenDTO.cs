@@ -11,8 +11,6 @@ namespace BLL.DTOs
     public class TokenDTO
     {
         [Required]
-        public int Id { get; set; }
-        [Required]
         public string TKey { get; set; }
         [Required]
         public DateTime CreatedAt { get; set; }
@@ -20,6 +18,6 @@ namespace BLL.DTOs
         public DateTime? DeletedAt { get; set; }
 
         [Required]
-        public string EmployeeMail { get; set; }
+        public string EmpMail { get; set; }
     }
 }

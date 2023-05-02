@@ -11,7 +11,7 @@ namespace DAL.Models
 {
     public class Token
     {
-        [Required,Key]
+        [Key]
         public int Id { get; set; }
         [Required]
         [StringLength(100)]

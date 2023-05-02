@@ -20,7 +20,7 @@
             //  to avoid creating duplicate seed data.
 
             //shadril238
-            //Employee Table
+            //Employees Table
             /*
             Random rand = new Random();
             for(int i = 0; i < 12; i++)
@@ -36,6 +36,23 @@
                     Address= Guid.NewGuid().ToString().Substring(0,5),
                     Status="Full-time",
                     Salary= rand.Next(15000, 45001)
+                });
+            }
+            */
+
+            //Customers Table
+            /*
+            Random rand = new Random();
+            for (int i = 0; i < 1000; i++)
+            {
+                context.Customers.AddOrUpdate(new Models.Customer
+                {
+                    Name = "Customer-" + i,
+                    Email= "customer"+i+"@xyz.com",
+                    Phone= "0175" + rand.Next(5734765, 9999999).ToString(),
+                    Gender="Male",
+                    Status="General",
+                    Address=Guid.NewGuid().ToString().Substring(0,5)
                 });
             }
             */

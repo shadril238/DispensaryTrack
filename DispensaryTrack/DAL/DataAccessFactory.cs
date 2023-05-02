@@ -1,5 +1,4 @@
-﻿//shadril238
-using DAL.Interfaces;
+﻿using DAL.Interfaces;
 using DAL.Models;
 using DAL.Repos;
 using System;
@@ -63,7 +62,7 @@ namespace DAL
             return new PurchaseMedicineRepo();
         }
         //Token
-        public static IRepo<Token, string, bool> TokenData()
+        public static IRepo<Token, string, Token> TokenData()
         {
             return new TokenRepo();
         }
