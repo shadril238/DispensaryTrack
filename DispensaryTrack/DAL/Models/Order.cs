@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace DispensaryTrack.Models
+namespace DAL.Models
 {
     public class Order
     {
