@@ -78,6 +78,7 @@
     <Compile Include="Repos\MedicineRepo.cs" />
     <Compile Include="Repos\OrderDetailRepo.cs" />
     <Compile Include="Repos\OrderRepo.cs" />
+    <Compile Include="Repos\PurchaseMedicineRepo.cs" />
     <Compile Include="Repos\RackRepo.cs" />
     <Compile Include="Repos\Repo.cs" />
   </ItemGroup>

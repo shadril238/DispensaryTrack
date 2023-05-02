@@ -53,6 +53,7 @@
     <Compile Include="DTOs\MedicineDTO.cs" />
     <Compile Include="DTOs\OrderDetailDTO.cs" />
     <Compile Include="DTOs\OrderDTO.cs" />
+    <Compile Include="DTOs\PurchaseMedicineDTO.cs" />
     <Compile Include="DTOs\RackDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BillService.cs" />
@@ -61,6 +62,8 @@
     <Compile Include="Services\DistributorCompanyService.cs" />
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\MedicineService.cs" />
+    <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\PurchaseMedicineService.cs" />
     <Compile Include="Services\RackService.cs" />
   </ItemGroup>
   <ItemGroup>

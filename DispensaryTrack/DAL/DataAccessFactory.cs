@@ -57,6 +57,11 @@ namespace DAL
         {
             return new DistributorCompanyRepo();
         }
+        //PurchaseMedicine
+        public static IRepo<PurchaseMedicine, int, bool> PurchaseMedicineData()
+        {
+            return new PurchaseMedicineRepo();
+        }
 
 
     }
