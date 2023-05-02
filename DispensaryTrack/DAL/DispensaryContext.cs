@@ -1,13 +1,11 @@
-﻿//shadril238
-using DAL.Models;
-using DispensaryTrack.Models;
+﻿using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace DispensaryTrack
+namespace DAL
 {
     public class DispensaryContext : DbContext
     {

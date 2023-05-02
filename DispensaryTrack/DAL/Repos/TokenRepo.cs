@@ -9,13 +9,17 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class TokenRepo : Repo, IRepo<Token, string, bool>
+    internal class TokenRepo : Repo, IRepo<Token, string, Token>
     {
-        public bool Delete(string tkey)
+        public Token Delete(string tkey)
         {
             var token = Get(tkey);
             db.Tokens.Remove(token);
-            return db.SaveChanges() > 0;
+            if(db.SaveChanges() > 0)
+            {
+                return token;
+            }
+            return null;
         }
 
         public List<Token> Get()
@@ -25,20 +29,28 @@ namespace DAL.Repos
 
         public Token Get(string tkey)
         {
-            return db.Tokens.Find(tkey);
+            return db.Tokens.FirstOrDefault(t => t.TKey.Equals(tkey));
         }
 
-        public bool Insert(Token obj)
+        public Token Insert(Token obj)
         {
             db.Tokens.Add(obj);
-            return db.SaveChanges() > 0;
+            if (db.SaveChanges() > 0)
+            {
+                return obj;
+            }
+            return null;
         }
 
-        public bool Update(Token obj)
+        public Token Update(Token obj)
         {
             var exToken = Get(obj.TKey);
             db.Entry(exToken).CurrentValues.SetValues(obj);
-            return db.SaveChanges() > 0;
+            if (db.SaveChanges() > 0)
+            {
+                return obj;
+            }
+            return null;
         }
     }
 }

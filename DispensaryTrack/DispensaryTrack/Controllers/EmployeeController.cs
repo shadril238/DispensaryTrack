@@ -1,5 +1,6 @@
 ﻿using BLL.DTOs;
 using BLL.Services;
+using DispensaryTrack.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,12 @@ using System.Web.Http;
 
 namespace DispensaryTrack.Controllers
 {
+    [Logged]
     public class EmployeeController : ApiController
     {
         [HttpGet]
         [Route("api/employees")]
-        public HttpResponseMessage Medicines()
+        public HttpResponseMessage Employees()
         {
             try
             {
@@ -26,7 +28,7 @@ namespace DispensaryTrack.Controllers
             }
         }
         [HttpGet]
-        [Route("api/employees/{id}")]
+        [Route("api/employees/{email}")]
         public HttpResponseMessage Employee(string email)
         {
             try
@@ -40,7 +42,7 @@ namespace DispensaryTrack.Controllers
             }
         }
         [HttpPost]
-        [Route("api/employees/delete/{id}")]
+        [Route("api/employees/delete/{email}")]
         public HttpResponseMessage DeleteEmployee(string email)
         {
             try

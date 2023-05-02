@@ -1,11 +1,10 @@
-﻿//shadril238
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace DispensaryTrack.Models
+namespace DAL.Models
 {
     public class Rack
     {

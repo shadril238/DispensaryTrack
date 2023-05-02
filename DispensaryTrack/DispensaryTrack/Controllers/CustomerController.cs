@@ -1,5 +1,6 @@
 ﻿using BLL.DTOs;
 using BLL.Services;
+using DispensaryTrack.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,10 @@ using System.Web.Http;
 
 namespace DispensaryTrack.Controllers
 {
+    [AdminAccess]
     public class CustomerController : ApiController
     {
+        
         [HttpGet]
         [Route("api/customers")]
         public HttpResponseMessage Customers()

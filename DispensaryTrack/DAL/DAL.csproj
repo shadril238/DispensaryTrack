@@ -71,6 +71,10 @@
     <Compile Include="Migrations\202305021004430_EmployeeTable_PK-Email_Updated-V-2.0.designer.cs">
       <DependentUpon>202305021004430_EmployeeTable_PK-Email_Updated-V-2.0.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305022109230_TokenTableFixed-V2.1.cs" />
+    <Compile Include="Migrations\202305022109230_TokenTableFixed-V2.1.designer.cs">
+      <DependentUpon>202305022109230_TokenTableFixed-V2.1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\Category.cs" />
@@ -113,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305021004430_EmployeeTable_PK-Email_Updated-V-2.0.resx">
       <DependentUpon>202305021004430_EmployeeTable_PK-Email_Updated-V-2.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305022109230_TokenTableFixed-V2.1.resx">
+      <DependentUpon>202305022109230_TokenTableFixed-V2.1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
