@@ -12,3 +12,17 @@ C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\EntityFrame
 C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\EntityFramework.xml
 C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\AutoMapper.dll
 C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\AutoMapper.xml
+D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\BLL.dll
+D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\BLL.pdb
+D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\AutoMapper.dll
+D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\DAL.dll
+D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\EntityFramework.dll
+D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\DAL.pdb
+D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\DAL.dll.config
+D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\AutoMapper.xml
+D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\EntityFramework.xml
+D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\BLL\obj\Debug\BLL.dll
+D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\BLL\obj\Debug\BLL.pdb
