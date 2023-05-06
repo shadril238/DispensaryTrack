@@ -8,15 +8,19 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace DispensaryTrack.Controllers
 {
+    [EnableCors("*","*","*")]
     public class AuthController : ApiController
     {
         [HttpPost]
         [Route("api/login")]
         public HttpResponseMessage Login(LoginModel login)
         {
+            var token = Request.Headers.Authorization.ToString();
+            AuthService.Logout(token);
             try
             {
                 var res = AuthService.Authenticate(login.Email, login.Password);

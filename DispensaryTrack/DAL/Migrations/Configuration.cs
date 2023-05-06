@@ -19,7 +19,9 @@
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
 
+            //shadril238
             //Employees Table
+            /*
             Random rand = new Random();
             for(int i = 0; i < 12; i++)
             {
@@ -36,8 +38,11 @@
                     Salary= rand.Next(15000, 45001)
                 });
             }
+            */
+
             //Customers Table
-            
+            /*
+            Random rand = new Random();
             for (int i = 0; i < 1000; i++)
             {
                 context.Customers.AddOrUpdate(new Models.Customer
@@ -50,7 +55,7 @@
                     Address=Guid.NewGuid().ToString().Substring(0,5)
                 });
             }
-            
+            */
         }
     }
 }

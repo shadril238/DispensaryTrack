@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Distributor - DispensaryTrack</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script>
+		var app = angular.module("my-app",[]);
+		
+		app.factory('interceptor',[function(){
+			var interceptor = {
+				request:function(config){
+					config.headers.Authorization = localStorage.getItem("tkey");
+					// debugger;
+					return config;
+				},
+				response:function(response){
+					// debugger;
+					return response;
+				}
+			};
+			return interceptor;
+		}]);
+		
+		app.config(function($httpProvider){
+			$httpProvider.interceptors.push('interceptor');
+		});
+		
+		app.controller('addRackCtrl',function($scope,$http){
+			$scope.addRack=function(){
+				var v = $scope.l;
+				$http.post("",v).then(function(resp){
+					//alert(Success);
+                    debugger;
+				},function(err){
+                    
+				});
+				
+				
+			};
+		});
+	</script>
+
+	<body ng-app="my-app">
+		<div ng-controller="addRackCtrl">
+			<form ng-submit="addRack() ">
+				<input type="text" ng-model="l.Name" placeholder="Name"> <br>
+                <input type="text" ng-model="l.Status" placeholder="Status"> <br>
+				<input type="submit">
+			</form>
+		</div>
+	</body>
+</html>

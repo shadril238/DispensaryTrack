@@ -6,6 +6,7 @@ using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,10 +44,13 @@ namespace BLL.Services
         public static bool Logout(string tkey)
         {
             var extk = DataAccessFactory.TokenData().Get(tkey);
-            extk.DeletedAt = DateTime.Now;
-            if (DataAccessFactory.TokenData().Update(extk) != null)
+            if (extk != null)
             {
-                return true;
+                extk.DeletedAt = DateTime.Now;
+                if (DataAccessFactory.TokenData().Update(extk) != null)
+                {
+                    return true;
+                }
             }
             return false;
         }
