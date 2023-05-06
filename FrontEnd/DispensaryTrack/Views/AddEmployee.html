@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee - DispensaryTrack</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script>
+		var app = angular.module("my-app",[]);
+		
+		app.factory('interceptor',[function(){
+			var interceptor = {
+				request:function(config){
+					config.headers.Authorization = localStorage.getItem("tkey");
+					// debugger;
+					return config;
+				},
+				response:function(response){
+					// debugger;
+					return response;
+				}
+			};
+			return interceptor;
+		}]);
+		
+		app.config(function($httpProvider){
+			$httpProvider.interceptors.push('interceptor');
+		});
+		
+		app.controller('addEmployeeCtrl',function($scope,$http){
+			$scope.addEmployee=function(){
+				var v = $scope.l;
+				$http.post("https://localhost:44338/api/employees/insert",v).then(function(resp){
+					//alert(Success);
+                    debugger;
+				},function(err){
+                    
+				});
+				
+				
+			};
+		});
+	</script>
+
+	<body ng-app="my-app">
+		<div ng-controller="addEmployeeCtrl">
+			<form ng-submit="addEmployee() ">
+				<input type="text" ng-model="l.Name" placeholder="Name"> <br>
+                <input type="text" ng-model="l.Email" placeholder="Email"> <br>
+                <input type="text" ng-model="l.Phone" placeholder="Phone"> <br>
+                <input type="password" ng-model="l.Password" placeholder="Password"> <br>
+				<input type="date" ng-model="l.JoinDate" placeholder = "JoinDate"> <br>
+                <input type="text" ng-model="l.EmpType" placeholder = "EmpType"> <br>
+                <input type="text" ng-model="l.Address" placeholder = "Address"> <br>
+                <input type="text" ng-model="l.Status" placeholder = "Status"> <br>
+                <input type="number" ng-model="l.Salary" placeholder = "Salary"> <br>
+				<input type="submit">
+			</form>
+		</div>
+	</body>
+</html>
