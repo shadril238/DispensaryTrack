@@ -3,8 +3,8 @@
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Employee - DispensaryTrack</title>
-    <style></style>
+    <title>Add Distributor - DispensaryTrack</title>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 	<script>
 		var app = angular.module("my-app",[]);
@@ -28,10 +28,12 @@
 			$httpProvider.interceptors.push('interceptor');
 		});
 		
-		app.controller('addEmployeeCtrl',function($scope,$http){
-			$scope.addEmployee=function(){
+		app.controller('addDistributorCtrl',function($scope,$http){
+            
+			$scope.addDistributor=function(){
 				var v = $scope.l;
-				$http.post("https://localhost:44338/api/employees/insert",v).then(function(resp){
+                
+				$http.post("https://localhost:44338/api/distributors/insert",v).then(function(resp){
 					//alert(Success);
                     debugger;
 				},function(err){
@@ -44,17 +46,19 @@
 	</script>
 
 	<body ng-app="my-app">
-		<div ng-controller="addEmployeeCtrl">
-			<form ng-submit="addEmployee() ">
-				<input type="text" ng-model="l.Name" placeholder="Name"> <br>
-                <input type="text" ng-model="l.Email" placeholder="Email"> <br>
+		<div ng-controller="addDistributorCtrl">
+			<form ng-submit="addDistributor() ">
+				<input type="text" ng-model="l.DistName" placeholder="DistName"> <br>
+                <input type="text" ng-model="l.CompName" placeholder="CompName"> <br>
                 <input type="text" ng-model="l.Phone" placeholder="Phone"> <br>
-                <input type="password" ng-model="l.Password" placeholder="Password"> <br>
-				<input type="date" ng-model="l.JoinDate" placeholder = "JoinDate"> <br>
-                <input type="text" ng-model="l.EmpType" placeholder = "EmpType"> <br>
-                <input type="text" ng-model="l.Address" placeholder = "Address"> <br>
-                <input type="text" ng-model="l.Status" placeholder = "Status"> <br>
-                <input type="number" ng-model="l.Salary" placeholder = "Salary"> <br>
+                <input type="email" ng-model="l.Email" placeholder="Email"> <br>
+				<input type="address" ng-model="l.Address" placeholder="Address"> <br>
+				<!-- <input type="checkbox" ng-model="l.Status">
+				<span ng-if="isChecked" ng-model="">Active</span>
+				<span ng-if="!isChecked">Inactive</span> -->
+                <input type="checkbox" ng-model="l.Status" ng-true-value="'Active'" ng-false-value="'Inactive'" ng-init="l.Status='Inactive'">
+                {{ l.Status }}
+				<br>
 				<input type="submit">
 			</form>
 		</div>
