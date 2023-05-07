@@ -31,6 +31,7 @@
 		app.controller('addDistributorCtrl',function($scope,$http){
 			$scope.addDisctributor=function(){
 				var v = $scope.l;
+				$scope.isChecked = false;
 				$http.post("",v).then(function(resp){
 					//alert(Success);
                     debugger;
@@ -50,8 +51,11 @@
                 <input type="text" ng-model="l.CompName" placeholder="CompName"> <br>
                 <input type="text" ng-model="l.Phone" placeholder="Phone"> <br>
                 <input type="text" ng-model="l.Email" placeholder="Email"> <br>
-		<input type="text" ng-model="l.Address" placeholder="Address"> <br>
-		<input type="text" ng-model="l.Status" placeholder="Status"> <br>
+				<input type="text" ng-model="l.Address" placeholder="Address"> <br>
+				<input type="checkbox" ng-model="isChecked">
+				<span ng-if="isChecked">Active</span>
+				<span ng-if="!isChecked">Inactive</span>
+				</label><br>
 				<input type="submit">
 			</form>
 		</div>
