@@ -9,13 +9,11 @@ using System.Threading.Tasks;
 
 namespace BLL.DTOs
 {
-    public class PurchaseMedicineDTO
+    public class PurchaseMedicineDTO : MedicineDTO
     {
-        [Required]
-        public int Id { get; set; }
-        [Required]
+        public int PurId { get; set; }
+    
         public double TotalPrice { get; set; }
-        [Required]
         public DateTime Date { get; set; }
         [Required]
         public int DistributorId { get; set; }

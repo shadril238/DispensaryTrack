@@ -59,5 +59,10 @@ namespace BLL.Services
         {
             return DataAccessFactory.PurchaseMedicineData().Delete(id);
         }
-    }
+        //last inserted purchaseId 
+        public static int GetLastInsertedId()
+        {
+            return DataAccessFactory.PurchaseMedicineData().Get().OrderByDescending(p => p.Id).SingleOrDefault().Id;
+        }
+}
 }
