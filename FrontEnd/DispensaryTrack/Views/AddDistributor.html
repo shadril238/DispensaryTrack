@@ -32,7 +32,7 @@
 			$scope.addDisctributor=function(){
 				var v = $scope.l;
 				$http.post("https://localhost:44338/api/distributors/insert",v).then(function(resp){
-					//alert(Success);
+					alert(Success);
                     debugger;
 				},function(err){
                     

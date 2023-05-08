@@ -7,11 +7,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace DispensaryTrack.Controllers
 {
     public class DistributorController : ApiController
     {
+        [EnableCors("*","*","*")]
         [HttpGet]
         [Route("api/distributors")]
         public HttpResponseMessage Distributors()
