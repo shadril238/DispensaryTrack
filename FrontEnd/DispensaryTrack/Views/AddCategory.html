@@ -31,8 +31,7 @@
 		app.controller('addCategoryCtrl',function($scope,$http){
 			$scope.addCategory=function(){
 				var v = $scope.l;
-				$scope.isChecked = false;
-				$http.post("",v).then(function(resp){
+				$http.post("https://localhost:44338/api/categories/insert",v).then(function(resp){
 					//alert(Success);
                     debugger;
 				},function(err){
@@ -50,10 +49,8 @@
 				<input type="text" ng-model="l.Name" placeholder="Name"> <br>
                 <input type="text" ng-model="l.Description" placeholder="Description"> <br>
                 <label>
-				<input type="checkbox" ng-model="isChecked">
-				<span ng-if="isChecked">Active</span>
-				<span ng-if="!isChecked">Inactive</span>
-				</label><br>
+				<input type="checkbox" ng-model="l.Status" ng-true-value="'Active'" ng-false-value="'Inactive'" ng-init="l.Status='Inactive'">
+				{{l.Status}}<br>
 				<input type="submit">
 			</form>
 		</div>

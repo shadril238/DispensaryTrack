@@ -28,10 +28,10 @@
 			$httpProvider.interceptors.push('interceptor');
 		});
 		
-		app.controller('addRackCtrl',function($scope,$http){
-			$scope.addRack=function(){
+		app.controller('addCustomerCtrl',function($scope,$http){
+			$scope.addCustomer=function(){
 				var v = $scope.l;
-				$http.post("https://localhost:44338/api/racks/insert",v).then(function(resp){
+				$http.post("https://localhost:44338/api/customers/insert",v).then(function(resp){
 					//alert(Success);
                     debugger;
 				},function(err){
@@ -44,11 +44,17 @@
 	</script>
 
 	<body ng-app="my-app">
-		<div ng-controller="addRackCtrl">
-			<form ng-submit="addRack() ">
+		<div ng-controller="addCustomerCtrl">
+			<form ng-submit="addCustomer() ">
 				<input type="text" ng-model="l.Name" placeholder="Name"> <br>
+				<input type="text" ng-model="l.Email" placeholder="Email"> <br>
+				<input type="text" ng-model="l.Phone" placeholder="Phone"> <br>
+				<input type="text" ng-model="l.Balance" placeholder="Balance"> <br>
+				<input type="radio" ng-model="l.Gender" value="Male"> Male
+    			<input type="radio" ng-model="l.Gender" value="Female"> Female<br>
 				<input type="checkbox" ng-model="l.Status" ng-true-value="'Active'" ng-false-value="'Inactive'" ng-init="l.Status='Inactive'">
 				{{l.Status}}<br>
+				<input type="text" ng-model="l.Address" placeholder="Address"> <br>
 				<input type="submit">
 			</form>
 		</div>
