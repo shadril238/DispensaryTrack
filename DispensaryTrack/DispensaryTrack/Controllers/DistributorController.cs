@@ -11,9 +11,9 @@ using System.Web.Http.Cors;
 
 namespace DispensaryTrack.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class DistributorController : ApiController
     {
-        [EnableCors("*","*","*")]
         [HttpGet]
         [Route("api/distributors")]
         public HttpResponseMessage Distributors()

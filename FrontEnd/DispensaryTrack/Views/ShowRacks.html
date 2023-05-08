@@ -3,7 +3,7 @@
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Category - DispensaryTrack</title>
+    <title>Show Racks - DispensaryTrack</title>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 	<script>
@@ -28,10 +28,9 @@
 			$httpProvider.interceptors.push('interceptor');
 		});
 		
-		app.controller('addCategoryCtrl',function($scope,$http){
-			$scope.addCategory=function(){
-				var v = $scope.l;
-				$http.post("https://localhost:44338/api/categories/insert",v).then(function(resp){
+		app.controller('ShowRackCtrl',function($scope,$http){
+				$http.get("https://localhost:44338/api/racks").then(function(resp){
+					$scope.racks=resp.data;
 					//alert(Success);
                     debugger;
 				},function(err){
@@ -39,20 +38,28 @@
 				});
 				
 				
-			};
 		});
 	</script>
 
 	<body ng-app="my-app">
-		<div ng-controller="addCategoryCtrl">
-			<form ng-submit="addCategory() ">
-				<input type="text" ng-model="l.Name" placeholder="Name"> <br>
-                <input type="text" ng-model="l.Description" placeholder="Description"> <br>
-                <label>
-				<input type="checkbox" ng-model="l.Status" ng-true-value="'Active'" ng-false-value="'Inactive'" ng-init="l.Status='Inactive'">
-				{{l.Status}}<br>
-				<input type="submit">
-			</form>
+		<div ng-controller="ShowRackCtrl">
+			<a ng-href="file:///D:/Battle.net/Dotnet/DispensaryTrack/FrontEnd/DispensaryTrack/Views/AddRack.html">Add</a>
+			<table border=1 style="border-collapse: collapse;">
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Status</th>
+					<th>Action</th>
+				</tr>
+    			<tr ng-repeat="r in racks">
+      				<td>{{r.Id}}</td>
+      				<td>{{r.Name}}</td>
+      				<td>{{r.Status}}</td>
+      				<td>
+      					<a ng-href="file:///D:/Battle.net/Dotnet/DispensaryTrack/FrontEnd/DispensaryTrack/Views/UpdateRacks.html">Edit</a>
+      				</td>
+    			</tr>
+			</table>
 		</div>
 	</body>
 </html>
