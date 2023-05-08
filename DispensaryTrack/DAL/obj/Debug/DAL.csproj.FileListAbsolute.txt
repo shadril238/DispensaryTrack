@@ -36,3 +36,4 @@ F:\AdvanceDotNet\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.csproj.CopyCo
 F:\AdvanceDotNet\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.dll
 F:\AdvanceDotNet\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.pdb
 >>>>>>> 98fb4fce2c881d193539cf45b2150943fb745320
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.MedicinePurchaseDistributor_TableRelationshipFixedV22.resources

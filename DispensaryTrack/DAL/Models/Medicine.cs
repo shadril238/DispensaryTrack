@@ -32,10 +32,13 @@ namespace DAL.Models
         public int PurchaseId { get; set; }
         [Required, ForeignKey("Rack")]
         public int RackId { get; set; }
+        [Required, ForeignKey("DistributorCompany")]
+        public int DistributorId { get; set; }
 
         public virtual Rack Rack { get; set; }
         public virtual PurchaseMedicine PurchaseMedicine { get; set; }
         public virtual Category Category { get; set; }
+        public virtual DistributorCompany DistributorCompany { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public Medicine()
         {
