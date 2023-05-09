@@ -1,5 +1,4 @@
-﻿//shadril238
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -24,11 +23,11 @@ namespace DAL.Models
         [Required]
         public string Status { get; set; }
 
-        public virtual ICollection<PurchaseMedicine> PurchaseMedicines { get; set; }
+        public virtual ICollection<Medicine> Medicines { get; set; }
 
         public DistributorCompany()
         {
-            PurchaseMedicines = new List<PurchaseMedicine>();
+            Medicines = new List<Medicine>();
         }
     }
 }

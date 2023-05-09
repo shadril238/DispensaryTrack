@@ -1,5 +1,4 @@
-﻿//shadril238
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
@@ -11,14 +10,9 @@ namespace BLL.DTOs
 {
     public class PurchaseMedicineDTO
     {
-        [Required]
         public int Id { get; set; }
-        [Required]
-        public double TotalPrice { get; set; }
-        [Required]
-        public DateTime Date { get; set; }
-        [Required]
-        public int DistributorId { get; set; }
 
+        public double TotalPrice { get; set; }
+        public DateTime Date { get; set; }
     }
 }

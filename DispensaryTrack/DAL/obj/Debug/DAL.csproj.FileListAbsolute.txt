@@ -54,3 +54,4 @@ D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.csproj.Co
 D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.dll
 D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.pdb
+D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.T.resources

@@ -75,6 +75,10 @@
     <Compile Include="Migrations\202305022109230_TokenTableFixed-V2.1.designer.cs">
       <DependentUpon>202305022109230_TokenTableFixed-V2.1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305091509049_T.cs" />
+    <Compile Include="Migrations\202305091509049_T.designer.cs">
+      <DependentUpon>202305091509049_T.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\Category.cs" />
@@ -120,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305022109230_TokenTableFixed-V2.1.resx">
       <DependentUpon>202305022109230_TokenTableFixed-V2.1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305091509049_T.resx">
+      <DependentUpon>202305091509049_T.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

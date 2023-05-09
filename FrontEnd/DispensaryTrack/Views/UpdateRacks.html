@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-US">
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,41 +28,47 @@
 			$httpProvider.interceptors.push('interceptor');
 		});
 		
-		app.controller('updateRackCtrl',function($scope,$http){
-			$scope.racks = null;
-
-			$scope.updateRack = function(racks) {
-  			$scope.racks = user;
-				};
-			$scope.updateRack=function(){
-				$http.post("https://localhost:44338/api/racks/update" + $scope.racks.Id , $scope.racks).then(function(resp){
-					$scope.racks = null;
+		app.controller('UpdateRackCtrl',function($scope,$http){
+				$http.get("https://localhost:44338/api/racks/{id}").then(function(resp){
+					$scope.racks=resp.data;
 					//alert(Success);
                     debugger;
 				},function(err){
                     
 				});
+				//update
+				$scope.updateRack = function(){
+					var data ={
+						Id: $scope.editRack.Id,
+						Name: $scope.editRack.Name,
+						Status: $scope.editRack.Status
+					};
+					$http.post("https://localhost:44338/api/racks/update", data).then(function()
+					{
+						$scope.racks.forEach(function(racks, index){
+							if(racks.Id===data.Id){
+								$scope.racks[index]=data;
+							}
+						});
+
+					});
+
+
+				};
 				
-			};
+				
 		});
 	</script>
 
 	<body ng-app="my-app">
-		<div ng-controller="updateRackCtrl">
-			<form ng-show="racks">
-  				<input type="text" ng-model="racks.Name" disabled><br>
-  				<input type="checkbox" ng-model="l.Status" ng-true-value="'Active'" ng-false-value="'Inactive'" ng-init="l.Status='Inactive'">
-				{{l.Status}}<br>
-  				<button ng-click="updateRack">Save</button>
+		<div ng-controller="UpdateRackCtrl">
+			<form>
+				<input type="text" ng-model="editRack.Id"><br>
+				<input type="text" ng-model="editRack.Name"><br>
+				<input type="checkbox" ng-model="data.editRack.Status" ng-true-value="'Active'" ng-false-value="'Inactive'" ng-init="editRack.Status='Inactive'">
+				{{editRack.Status}}<br>
+				<button ng-click="updateRack()">Update Rack</button>
 			</form>
-
-
-			<!-- <form ng-submit="addRack() ">
-				<input type="text" ng-model="l.Name" placeholder="Name"> <br>
-				<input type="checkbox" ng-model="l.Status" ng-true-value="'Active'" ng-false-value="'Inactive'" ng-init="l.Status='Inactive'">
-				{{l.Status}}<br>
-				<input type="submit">
-			</form> -->
 		</div>
 	</body>
-</html> -->
+</html>

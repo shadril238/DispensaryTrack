@@ -32,10 +32,22 @@
 				$http.get("https://localhost:44338/api/racks").then(function(resp){
 					$scope.racks=resp.data;
 					//alert(Success);
-                    debugger;
+                    //debugger;
 				},function(err){
                     
 				});
+				//delete
+				 $scope.deleteRack = function (id) {
+                $http.post("api/racks/delete/" + id)
+                    .then(function () {
+                        for (var i = 0; i < $scope.racks.length; i++) {
+                            if ($scope.racks[i].Id === id) {
+                                $scope.racks.splice(i, 1);
+                                break;
+                            }
+                        }
+                    });
+            };
 				
 				
 		});
@@ -57,6 +69,7 @@
       				<td>{{r.Status}}</td>
       				<td>
       					<a ng-href="file:///D:/Battle.net/Dotnet/DispensaryTrack/FrontEnd/DispensaryTrack/Views/UpdateRacks.html">Edit</a>
+
       				</td>
     			</tr>
 			</table>
