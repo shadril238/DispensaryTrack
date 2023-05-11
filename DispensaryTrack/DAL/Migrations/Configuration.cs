@@ -21,6 +21,15 @@
 
             //shadril238
             //Employees Table
+            Random rand = new Random();
+            for (int i = 0; i < 12; i++)
+            {
+                context.PurchaseMedicines.AddOrUpdate(new Models.PurchaseMedicine
+                {
+                    TotalPrice = rand.Next(30, 500),
+                    Date = DateTime.Now.AddDays(-rand.Next(1, 365))
+                });
+            }
             /*
             Random rand = new Random();
             for(int i = 0; i < 12; i++)

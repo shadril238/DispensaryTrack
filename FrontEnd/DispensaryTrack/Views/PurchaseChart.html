@@ -11,7 +11,7 @@
     
 	<script>
 		var app = angular.module('myApp', []);
-		app.service('purchaseService', function($http) {
+		app.service('purchaseMedicine', function($http) {
   		this.getPurchases = function() {
     	return $http.get("https://localhost:44338/api/purchasemedicines").then(function(response) {
       	return response.data;
@@ -37,7 +37,7 @@
 		app.config(function($httpProvider){
 			$httpProvider.interceptors.push('interceptor');
 		});
-		app.controller('myCtrl', function($scope, purchaseService) {
+		app.controller('myCtrl', function($scope, purchaseMedicine) {
   			$scope.labels = []; // empty array to hold the labels
   			$scope.data = []; // empty array to hold the data
   			$scope.options = {
@@ -49,7 +49,7 @@
   	};
   
   // retrieve the data from the API using the purchaseService
-  purchaseService.getPurchases().then(function(purchaseData) {
+  purchaseMedicine.getPurchases().then(function(purchaseData) {
     // loop through the purchaseData array and populate the labels and data arrays
     for (var i = 0; i < purchaseData.length; i++) {
       $scope.labels.push(purchaseData[i].Date); // add the purchase date as the label

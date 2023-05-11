@@ -55,3 +55,22 @@ D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.csproj.Co
 D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.dll
 D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.pdb
 D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.T.resources
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\bin\Debug\DAL.dll.config
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\bin\Debug\DAL.dll
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\bin\Debug\DAL.pdb
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\bin\Debug\EntityFramework.dll
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\bin\Debug\EntityFramework.xml
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.AllTableDoneV10.resources
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.TokenDBV11.resources
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.EmailColumnUniqueConstraintAddedV12.resources
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.EmployeeTable_PKEmail_UpdatedV20.resources
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.TokenTableFixedV21.resources
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.T.resources
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.dll
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.pdb

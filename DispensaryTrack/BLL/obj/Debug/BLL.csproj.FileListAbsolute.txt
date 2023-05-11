@@ -26,3 +26,17 @@ D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\BLL\obj\Debug\BLL.csproj.Co
 D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\BLL\obj\Debug\BLL.csproj.CopyComplete
 D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\BLL\obj\Debug\BLL.dll
 D:\Battle.net\Dotnet\DispensaryTrack\DispensaryTrack\BLL\obj\Debug\BLL.pdb
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\BLL.dll
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\BLL.pdb
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\AutoMapper.dll
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\DAL.dll
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\EntityFramework.dll
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\DAL.pdb
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\DAL.dll.config
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\AutoMapper.xml
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\BLL\bin\Debug\EntityFramework.xml
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\BLL\obj\Debug\BLL.dll
+D:\DotNet Project\DispensaryTrack\DispensaryTrack\BLL\obj\Debug\BLL.pdb
