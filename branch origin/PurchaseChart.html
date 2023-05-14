@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <link rel="stylesheet" href="PurchaseChart.css">
+    <title>Parchase Medicine</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+</head>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.service('purchaseMedicine', function ($http) {
+        this.getPurchases = function () {
+            return $http.get("https://localhost:44338/api/purchasemedicines").then(function (response) {
+                return response.data;
+            });
+        };
+    });
+
+    app.factory('interceptor', [function () {
+        var interceptor = {
+            request: function (config) {
+                config.headers.Authorization = localStorage.getItem("tkey");
+                // debugger;
+                return config;
+            },
+            response: function (response) {
+                // debugger;
+                return response;
+            }
+        };
+        return interceptor;
+    }]);
+
+    app.config(function ($httpProvider) {
+        $httpProvider.interceptors.push('interceptor');
+    });
+    app.controller('myCtrl', function ($scope, purchaseMedicine) {
+        $scope.labels = []; // empty array to hold the labels
+        $scope.data = []; // empty array to hold the data
+        $scope.options = {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        };
+
+        // retrieve the data from the API using the purchaseService
+        purchaseMedicine.getPurchases().then(function (purchaseData) {
+            // loop through the purchaseData array and populate the labels and data arrays
+            for (var i = 0; i < purchaseData.length; i++) {
+                $scope.labels.push(purchaseData[i].Date); // add the purchase date as the label
+                $scope.data.push(purchaseData[i].TotalPrice); // add the total price as the data point
+            }
+
+            // create the chart
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: $scope.labels,
+                    datasets: [{
+                        label: 'Total Price',
+                        data: $scope.data,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: $scope.options
+            });
+        });
+    });
+
+
+
+
+</script>
+
+<body ng-app="myApp" ng-controller="myCtrl" ng-init="myChart()">
+    <canvas id="myChart"></canvas>
+</body>
+
+</html>

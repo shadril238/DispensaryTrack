@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="ShowCategory.css">
+<title>Show Category - DispensaryTrack</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+    var app = angular.module("my-app", []);
+
+    app.factory('interceptor', [function () {
+        var interceptor = {
+            request: function (config) {
+                config.headers.Authorization = localStorage.getItem("tkey");
+                // debugger;
+                return config;
+            },
+            response: function (response) {
+                // debugger;
+                return response;
+            }
+        };
+        return interceptor;
+    }]);
+
+    app.config(function ($httpProvider) {
+        $httpProvider.interceptors.push('interceptor');
+    });
+
+    app.controller('ShowCategoryCtrl', function ($scope, $http) {
+        $http.get("https://localhost:44338/api/categories").then(function (resp) {
+            $scope.category = resp.data;
+            //alert(Success);
+            debugger;
+        }, function (err) {
+
+        });
+
+
+    });
+</script>
+
+
+<body ng-app="my-app">
+    <div ng-controller="ShowCategoryCtrl">
+        <div class="container">
+            <a class="add-new-category"
+                href="file:///D:/Battle.net/Dotnet/DispensaryTrack/FrontEnd/DispensaryTrack/Views/AddCategory.html">Add
+                New Category</a>
+        </div>
+        <table border="1" style="border-collapse: collapse;">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            <tr ng-repeat="r in category">
+                <td>{{r.Id}}</td>
+                <td>{{r.Name}}</td>
+                <td>{{r.Description}}</td>
+                <td>{{r.Status}}</td>
+                <td>
+                    <a ng-href="">Edit</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+
+</html>

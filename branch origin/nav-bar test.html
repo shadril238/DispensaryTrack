@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="nav-bar test.css">
+    <script src="nav-bar test.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .icon {
+            font-size: 28px;
+            /* Adjust the font size as desired */
+        }
+
+        .logo {
+            display: block;
+
+            margin: 10px;
+            /* Adjust the margin as needed */
+            width: 200px;
+            /* Adjust the logo width as desired */
+            height: 60;
+            /* The height will be automatically adjusted */
+
+
+
+        }
+
+        .closebtn {
+            position: relative;
+        }
+
+        .logo-container {
+
+
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            transform: translate(-70%, -50%);
+        }
+    </style>
+    <title>DispensaryTrack</title>
+</head>
+
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+            <div class="logo-container">
+                <img src="dispensary logo1.png" alt="Logo" class="logo">
+            </div>
+            &times;
+        </a>
+        <a href="AddCategory.html" class="nav-link">Add Customer</a>
+        <a href="AddCategory.html" class="nav-link">Add Category</a>
+        <a href="#" class="nav-link">Show Category</a>
+        <a href="#" class="nav-link">Add Distributor</a>
+        <a href="#" class="nav-link">Add Purchase Chart</a>
+        <a href="#" class="nav-link">Add Racks</a>
+        <a href="#" class="nav-link">Show Racks</a>
+        <a href="#" class="nav-link">Update Racks</a>
+    </div>
+
+    <!-- Use the Font Awesome icon to open the sidenav -->
+    <span onclick="openNav()"><i class="fas fa-bars icon"></i></span>
+
+    <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+    <div id="main">
+        ...
+    </div>
+</body>
+
+</html>

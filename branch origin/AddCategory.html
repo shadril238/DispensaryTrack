@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="AddCategory.css">
+<title>Add Category - DispensaryTrack</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+    var app = angular.module("my-app", []);
+
+    app.factory('interceptor', [function () {
+        var interceptor = {
+            request: function (config) {
+                config.headers.Authorization = localStorage.getItem("tkey");
+                // debugger;
+                return config;
+            },
+            response: function (response) {
+                // debugger;
+                return response;
+            }
+        };
+        return interceptor;
+    }]);
+
+    app.config(function ($httpProvider) {
+        $httpProvider.interceptors.push('interceptor');
+    });
+
+    app.controller('addCategoryCtrl', function ($scope, $http) {
+        $scope.addCategory = function () {
+            var v = $scope.l;
+            $http.post("https://localhost:44338/api/categories/insert", v).then(function (resp) {
+                //alert(Success);
+                debugger;
+            }, function (err) {
+
+            });
+
+
+        };
+    });
+</script>
+
+<body ng-app="my-app">
+    <div ng-controller="addCategoryCtrl">
+        <form ng-submit="addCategory() ">
+            <h2 class="title">Add Category</h2>
+            <input type="text" ng-model="l.Name" placeholder="Category Name"> <br>
+            <input type="text" ng-model="l.Description" placeholder="Description"> <br>
+            <label>
+                <input type="checkbox" ng-model="l.Status" ng-true-value="'Active'" ng-false-value="'Inactive'"
+                    ng-init="l.Status='Inactive'">
+                {{l.Status}}<br>
+                <input type="submit">
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="AddCustomer.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<title>Add Customer- DispensaryTrack</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+    var app = angular.module("my-app", []);
+
+    app.factory('interceptor', [function () {
+        var interceptor = {
+            request: function (config) {
+                config.headers.Authorization = localStorage.getItem("tkey");
+                // debugger;
+                return config;
+            },
+            response: function (response) {
+                // debugger;
+                return response;
+            }
+        };
+        return interceptor;
+    }]);
+
+    app.config(function ($httpProvider) {
+        $httpProvider.interceptors.push('interceptor');
+    });
+
+    app.controller('addCustomerCtrl', function ($scope, $http) {
+        $scope.addCustomer = function () {
+            var v = $scope.l;
+            $http.post("https://localhost:44338/api/customers/insert", v).then(function (resp) {
+                //alert(Success);
+                debugger;
+            }, function (err) {
+
+            });
+
+
+        };
+    });
+</script>
+
+<body ng-app="my-app">
+    <div class="container" ng-controller="addCustomerCtrl">
+        <h2>Add Customer</h2>
+        <form ng-submit="addCustomer()">
+            <label for="name">Name</label>
+            <input type="text" id="name" ng-model="l.Name" placeholder="Name">
+
+            <label for="email">Email</label>
+            <input type="text" id="email" ng-model="l.Email" placeholder="Email">
+
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" ng-model="l.Phone" placeholder="Phone">
+
+            <label for="balance">Balance</label>
+            <input type="text" id="balance" ng-model="l.Balance" placeholder="Balance">
+
+            <label class="gender-label">Gender</label>
+            <div>
+                <input type="radio" id="male" ng-model="l.Gender" value="Male">
+                <label for="male">Male</label>
+            </div>
+            <div>
+                <input type="radio" id="female" ng-model="l.Gender" value="Female">
+                <label for="female">Female</label>
+            </div>
+
+            <label for="status">Status</label>
+            <input type="checkbox" id="status" ng-model="l.Status" ng-true-value="'Active'" ng-false-value="'Inactive'"
+                ng-init="l.Status='Inactive'">
+            <label for="status">{{l.Status}}</label><br><br>
+
+            <label for="address">Address</label>
+            <input type="text" id="address" ng-model="l.Address" placeholder="Address">
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+
+</html>

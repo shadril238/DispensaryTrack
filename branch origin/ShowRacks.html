@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="ShowRacks.css">
+<title>Show Racks - DispensaryTrack</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+    var app = angular.module("my-app", []);
+
+    app.factory('interceptor', [function () {
+        var interceptor = {
+            request: function (config) {
+                config.headers.Authorization = localStorage.getItem("tkey");
+                // debugger;
+                return config;
+            },
+            response: function (response) {
+                // debugger;
+                return response;
+            }
+        };
+        return interceptor;
+    }]);
+
+    app.config(function ($httpProvider) {
+        $httpProvider.interceptors.push('interceptor');
+    });
+
+    app.controller('ShowRackCtrl', function ($scope, $http) {
+        $http.get("https://localhost:44338/api/racks").then(function (resp) {
+            $scope.racks = resp.data;
+            //alert(Success);
+            //debugger;
+        }, function (err) {
+
+        });
+        //delete
+        $scope.deleteRack = function (id) {
+            $http.post("api/racks/delete/" + id)
+                .then(function () {
+                    for (var i = 0; i < $scope.racks.length; i++) {
+                        if ($scope.racks[i].Id === id) {
+                            $scope.racks.splice(i, 1);
+                            break;
+                        }
+                    }
+                });
+        };
+
+
+    });
+</script>
+
+<body ng-app="my-app">
+    <div ng-controller="ShowRackCtrl">
+        <div class="container">
+            <a class="add-rack-button"
+                href="file:///D:/Battle.net/Dotnet/DispensaryTrack/FrontEnd/DispensaryTrack/Views/AddRack.html">Add</a>
+        </div>
+        <table border="1" style="border-collapse: collapse;">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            <tr ng-repeat="r in racks">
+                <td>{{r.Id}}</td>
+                <td>{{r.Name}}</td>
+                <td>{{r.Status}}</td>
+                <td>
+                    <a class="edit-link"
+                        href="file:///D:/Battle.net/Dotnet/DispensaryTrack/FrontEnd/DispensaryTrack/Views/UpdateRacks.html">Edit</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

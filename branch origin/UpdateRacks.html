@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="UpdateRacks.css">
+<title>Update Racks - DispensaryTrack</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+    var app = angular.module("my-app", []);
+
+    app.factory('interceptor', [function () {
+        var interceptor = {
+            request: function (config) {
+                config.headers.Authorization = localStorage.getItem("tkey");
+                // debugger;
+                return config;
+            },
+            response: function (response) {
+                // debugger;
+                return response;
+            }
+        };
+        return interceptor;
+    }]);
+
+    app.config(function ($httpProvider) {
+        $httpProvider.interceptors.push('interceptor');
+    });
+
+    app.controller('UpdateRackCtrl', function ($scope, $http) {
+        $http.get("https://localhost:44338/api/racks/{id}").then(function (resp) {
+            $scope.racks = resp.data;
+            //alert(Success);
+            debugger;
+        }, function (err) {
+
+        });
+        //update
+        $scope.updateRack = function () {
+            var data = {
+                Id: $scope.editRack.Id,
+                Name: $scope.editRack.Name,
+                Status: $scope.editRack.Status
+            };
+            $http.post("https://localhost:44338/api/racks/update", data).then(function () {
+                $scope.racks.forEach(function (racks, index) {
+                    if (racks.Id === data.Id) {
+                        $scope.racks[index] = data;
+                    }
+                });
+
+            });
+
+
+        };
+
+
+    });
+</script>
+
+<body ng-app="my-app">
+    <div ng-controller="UpdateRackCtrl">
+        <div class="container">
+            <form>
+                <div class="form-input">
+                    <label>ID</label>
+                    <input type="text" ng-model="editRack.Id">
+                </div>
+                <div class="form-input">
+                    <label>Name</label>
+                    <input type="text" ng-model="editRack.Name">
+                </div>
+                <div class="form-input">
+                    <label>Status</label>
+                    <input type="checkbox" ng-model="editRack.Status" ng-true-value="'Active'"
+                        ng-false-value="'Inactive'" ng-init="editRack.Status='Inactive'">
+                    {{editRack.Status}}
+                </div>
+                <button ng-click="updateRack()">Update Rack</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

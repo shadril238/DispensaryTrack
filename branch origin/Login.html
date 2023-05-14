@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="Login.css">
+<title>Login - DispensaryTrack</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+    var app = angular.module("my-app", []);
+
+    app.factory('interceptor', [function () {
+        var interceptor = {
+            request: function (config) {
+                config.headers.Authorization = localStorage.getItem("tkey");
+                // debugger;
+                return config;
+            },
+            response: function (response) {
+                // debugger;
+                return response;
+            }
+        };
+        return interceptor;
+    }]);
+
+    app.config(function ($httpProvider) {
+        $httpProvider.interceptors.push('interceptor');
+    });
+
+    app.controller('loginCtrl', function ($scope, $http) {
+        $scope.login = function () {
+            var v = $scope.l;
+            $http.post("https://localhost:44338/api/login", v).then(function (resp) {
+                localStorage.setItem("tkey", resp.data.TKey);
+                // debugger;
+            }, function (err) {
+
+            });
+
+
+        };
+    });
+</script>
+
+<body ng-app="my-app">
+    <div class="login-box" ng-controller="loginCtrl">
+        <h2>Login</h2>
+        <form ng-submit="login()">
+            <div class="user-box">
+                <input type="text" ng-model="l.Email" placeholder="Email" name="" required="">
+                <label>Email</label>
+            </div>
+            <div class="user-box">
+                <input type="password" ng-model="l.Password" placeholder="Password" name="" required="">
+                <label>Password</label>
+            </div>
+
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+
+</body>
+
+</html>
