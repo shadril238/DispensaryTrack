@@ -11,16 +11,48 @@ namespace BLL.Services
     public class PurchaseReportService
     {
         //Returns Date and Total Purchase
-        public static List<PerDayTotalPurchaseDTO> GetPerDayTotalPurchase()
+        public static List<PerDayTotalPurchaseDTO> GetPerDayTotalPurchases()
         {
-            var bills = DataAccessFactory.PurchaseMedicineData().Get();
-            var data = bills.GroupBy(b => b.Date.Date).Select(group => new PerDayTotalPurchaseDTO
-            {
-                Date = group.Key,
-                TotalPurchase = group.Sum(b => b.TotalPrice)
-            }).ToList();
+            var purchase = DataAccessFactory.PurchaseMedicineData().Get();
+            var data = purchase
+                .Where(p => p.Date.Day.Equals(DateTime.Now.Day) && p.Date.Month.Equals(DateTime.Now.Month) && p.Date.Year.Equals(DateTime.Now.Year))
+                .GroupBy(p => p.Date.Date)
+                .Select(group => new PerDayTotalPurchaseDTO
+                {
+                    Date = group.Key,
+                    TotalPurchase = group.Sum(p => p.TotalPrice)
+                }).ToList();
 
             return data;
+        }
+        //Returns Daily Total Purchase
+        public static double GetPerDayTotalPurchase()
+        {
+            var purchase = DataAccessFactory.PurchaseMedicineData().Get();
+            var data = purchase
+                .Where(p => p.Date.Month.Equals(DateTime.Now.Month) && p.Date.Year.Equals(DateTime.Now.Year))
+                .GroupBy(p => p.Date.Month)
+                .Select(group => new
+                {
+                    TotalPurchase = group.Sum(p => p.TotalPrice)
+                }).ToList();
+
+            return Convert.ToDouble(data);
+        }
+
+        //Returns Monthly Total Purchase
+        public static double GetPerMonthTotalPurchase()
+        {
+            var purchase = DataAccessFactory.PurchaseMedicineData().Get();
+            var data = purchase
+                .Where(p => p.Date.Month.Equals(DateTime.Now.Month) && p.Date.Year.Equals(DateTime.Now.Year))
+                .GroupBy(p => p.Date.Month)
+                .Select(group => new
+                {
+                    TotalPurchase = group.Sum(p => p.TotalPrice)
+                }).ToList();
+
+            return Convert.ToDouble(data);
         }
     }
 }

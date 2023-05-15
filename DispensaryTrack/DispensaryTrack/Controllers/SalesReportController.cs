@@ -12,12 +12,26 @@ namespace DispensaryTrack.Controllers
     [EnableCors("*","*","*")]
     public class SalesReportController : ApiController
     {
-        [HttpGet, Route("/api/totalsaleperday")]
+        [HttpGet, Route("/api/totalsalesperday")]
         public HttpResponseMessage GetPerDayTotalSale()
         {
             try
             {
                 var data = SalesReportService.GetPerDayTotalSale();
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+
+        }
+        [HttpGet, Route("/api/totalsalepermonth")]
+        public HttpResponseMessage GetPerMonthTotalSale()
+        {
+            try
+            {
+                var data = SalesReportService.GetPerMonthTotalSale();
                 return Request.CreateResponse(HttpStatusCode.OK, data);
             }
             catch (Exception ex)
