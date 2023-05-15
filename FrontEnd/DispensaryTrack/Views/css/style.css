@@ -1,0 +1,137 @@
+   input[type=button], input[type=submit], input[type=reset] {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+}
+a:link, a:visited {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: red;
+}
+.table{
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 800px;
+}
+.table thead tr{
+  background-color: #009879;
+  color: #ffffff;
+  text align: left;
+  font width: bold;
+}
+
+.table td{
+  padding: 15px 15px;
+}
+
+.table th{
+  padding: 12px 15px;
+}
+.table tbody tr{
+  border-bottom: 1px solid #dddddd;
+}
+.table tbody tr:nth-of-type(even){
+  background-color: #f3f3f3;
+}
+.table tbody tr:last-of-type{
+  border-bottom: 2px solid #009870;
+}
+
+.main{
+  background-color: #c4e0e5;
+  width: 800px;
+  margin: auto;
+}
+
+.main1{
+  background-color: #c4e0e5;
+  width: 800px;
+  margin: auto;
+}
+
+
+input[type=text], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border: 4px solid green;
+  box-sizing: border-box;
+}
+
+input[type=email], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border: 4px solid green;
+  box-sizing: border-box;
+}
+input[type=mobileno], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border: 4px solid green;
+  box-sizing: border-box;
+}
+
+input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border: 4px solid green;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 4px solid green;
+  border-radius: 4px;
+} 

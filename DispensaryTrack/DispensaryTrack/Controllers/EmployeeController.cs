@@ -12,7 +12,6 @@ using System.Web.Http.Cors;
 
 namespace DispensaryTrack.Controllers
 {
-    [Logged]
     [EnableCors("*","*","*")]
     public class EmployeeController : ApiController
     {

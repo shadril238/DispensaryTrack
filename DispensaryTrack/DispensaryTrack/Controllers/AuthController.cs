@@ -19,8 +19,8 @@ namespace DispensaryTrack.Controllers
         [Route("api/login")]
         public HttpResponseMessage Login(LoginModel login)
         {
-            var token = Request.Headers.Authorization.ToString();
-            AuthService.Logout(token);
+            //var token = Request.Headers.Authorization.ToString();
+            //AuthService.Logout(token);
             try
             {
                 var res = AuthService.Authenticate(login.Email, login.Password);

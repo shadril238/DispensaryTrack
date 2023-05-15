@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racks - DispensaryTrack</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script>
+
+		var app = angular.module("my-app",[]);
+		
+		app.factory('interceptor',[function(){
+			var interceptor = {
+				request:function(config){
+					config.headers.Authorization = localStorage.getItem("tkey");
+					// debugger;
+					return config;
+				},
+				response:function(response){
+					// debugger;
+					return response;
+				}
+			};
+			return interceptor;
+		}]);
+		
+		app.config(function($httpProvider){
+			$httpProvider.interceptors.push('interceptor');
+		});
+		
+		app.controller('RackCtrl',function($scope,$http){
+			$http.get("https://localhost:44338/api/racks").then(function(resp){
+			$scope.racks=resp.data;
+			//alert(Success);
+            //debugger;
+			},function(err){
+
+			});
+            
+            //form action
+            $scope.formAction="Add";
+
+            // update form
+            $scope.editRack=function(r){
+                $scope.rack=angular.copy(r);
+                $scope.formAction="Edit";
+            }
+
+            //delete form
+            $scope.deleteRack=function(r){
+            $http.post("https://localhost:44338/api/racks/delete/"+r.Id).then(function(resp){
+                debugger;
+                var index = $scope.racks.indexOf(r);
+                $scope.racks.splice(index, 1);
+			},function(err){
+
+			});          
+            }
+            //submitform
+            $scope.submitForm=function(){
+                var v=$scope.rack;
+                if($scope.formAction=="Add"){
+                    $http.post("https://localhost:44338/api/racks/insert",v).then(function(resp){
+					    //alert(Success);
+                        debugger;
+				    },function(err){
+                    
+				    });
+                }
+                else{
+                    $http.post("https://localhost:44338/api/racks/update",v).then(function(resp){
+					    //alert(Success);
+                        debugger;
+				    },function(err){
+                    
+				    });
+                }
+                $scope.clearForm();
+            }
+            //clear form
+            $scope.clearForm = function() {
+                $scope.rack = {Id: '', Name: '', Status: 'Inactive'};
+                $scope.formAction = 'Add';
+            }
+			
+		});
+	</script>
+
+	<body ng-app="my-app">
+		<div ng-controller="RackCtrl">
+            <form ng-submit="submitForm()">
+                <input type="hidden" ng-model="rack.Id" required>
+                <label>Name:</label>
+                <input type="text" ng-model="rack.Name" required><br>
+                <label>Status:</label>
+                <input type="checkbox" ng-model="rack.Status" ng-true-value="'Active'" ng-false-value="'Inactive'" ng-init="rack.Status='Inactive'">
+                {{rack.Status}}<br>
+                <button type="submit">{{formAction}}</button>
+                <button ng-click="clearForm()">Clear</button>
+              </form>
+              <br><br>
+			<table border=1 style="border-collapse: collapse;">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="r in racks">
+                    <td>{{ r.Id }}</td>
+                    <td>{{ r.Name }}</td>
+                    <td>{{ r.Status }}</td>
+                    <td>
+                      <button ng-click="editRack(r)">Edit</button>
+                      <button ng-click="deleteRack(r)">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+		</div>
+	</body>
+</html>
