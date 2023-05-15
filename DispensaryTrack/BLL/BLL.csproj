@@ -53,6 +53,7 @@
     <Compile Include="DTOs\MedicineDTO.cs" />
     <Compile Include="DTOs\OrderDetailDTO.cs" />
     <Compile Include="DTOs\OrderDTO.cs" />
+    <Compile Include="DTOs\PerDayTotalPurchaseDTO.cs" />
     <Compile Include="DTOs\PerDayTotalSaleDTO.cs" />
     <Compile Include="DTOs\PurchaseMedicineDTO.cs" />
     <Compile Include="DTOs\RackDTO.cs" />
@@ -69,8 +70,9 @@
     <Compile Include="Services\OrderDetailService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\PurchaseMedicineService.cs" />
+    <Compile Include="Services\PurchaseReportService.cs" />
     <Compile Include="Services\RackService.cs" />
-    <Compile Include="Services\SalesReport.cs" />
+    <Compile Include="Services\SalesReportService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

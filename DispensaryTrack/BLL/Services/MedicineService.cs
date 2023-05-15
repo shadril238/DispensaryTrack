@@ -59,5 +59,34 @@ namespace BLL.Services
         {
             return DataAccessFactory.MedicineData().Delete(id);
         }
+
+        //Expired Medicine Alert
+        public static List<MedicineDTO> ExpireMedicineAlert()
+        {
+            var medicine = DataAccessFactory.MedicineData().Get();
+            var data = medicine
+                .Where(m => m.ExpireDate.AddDays(-5) >= DateTime.Now && m.Status.Equals("Active")).ToList();
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<Medicine, MedicineDTO>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<List<MedicineDTO>>(data);
+            return mapped;
+        }
+        //Stock Alert
+        public static List<MedicineDTO> StockMedicineAlert()
+        {
+            var medicine = DataAccessFactory.MedicineData().Get();
+            var data = medicine
+                .Where(m => m.TotalStock < 100).ToList();
+            var cfg = new MapperConfiguration(c =>
+            {
+                c.CreateMap<Medicine, MedicineDTO>();
+            });
+            var mapper = new Mapper(cfg);
+            var mapped = mapper.Map<List<MedicineDTO>>(data);
+            return mapped;
+        }
     }
 }
