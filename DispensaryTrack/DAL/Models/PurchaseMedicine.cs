@@ -16,10 +16,10 @@ namespace DAL.Models
         public double TotalPrice { get; set; }
         [Required]
         public DateTime Date { get; set; }
-        public virtual ICollection<Medicine> Medicines { get; set; }
+        public virtual ICollection<StockMedicine> StockMedicines { get; set; }
         public PurchaseMedicine()
         {
-            Medicines = new List<Medicine>();
+            StockMedicines = new List<StockMedicine>();
         }
     }
 }

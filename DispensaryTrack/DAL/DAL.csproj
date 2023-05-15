@@ -79,6 +79,22 @@
     <Compile Include="Migrations\202305082145077_MedicinePurchaseDistributor_TableRelationshipFixed-V2.2.designer.cs">
       <DependentUpon>202305082145077_MedicinePurchaseDistributor_TableRelationshipFixed-V2.2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305151946472_StockTableAdded-V-3.0.cs" />
+    <Compile Include="Migrations\202305151946472_StockTableAdded-V-3.0.designer.cs">
+      <DependentUpon>202305151946472_StockTableAdded-V-3.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305151956177_StockTableAdded_FKFixed-V-3.1.cs" />
+    <Compile Include="Migrations\202305151956177_StockTableAdded_FKFixed-V-3.1.designer.cs">
+      <DependentUpon>202305151956177_StockTableAdded_FKFixed-V-3.1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305152010028_StockTableAdded_FKFixed-V-3.2.cs" />
+    <Compile Include="Migrations\202305152010028_StockTableAdded_FKFixed-V-3.2.designer.cs">
+      <DependentUpon>202305152010028_StockTableAdded_FKFixed-V-3.2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305152014322_CategoryMedicine_FKFixed-V-3.3.cs" />
+    <Compile Include="Migrations\202305152014322_CategoryMedicine_FKFixed-V-3.3.designer.cs">
+      <DependentUpon>202305152014322_CategoryMedicine_FKFixed-V-3.3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\Category.cs" />
@@ -90,6 +106,7 @@
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\PurchaseMedicine.cs" />
     <Compile Include="Models\Rack.cs" />
+    <Compile Include="Models\StockMedicine.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\BillRepo.cs" />
@@ -103,6 +120,7 @@
     <Compile Include="Repos\PurchaseMedicineRepo.cs" />
     <Compile Include="Repos\RackRepo.cs" />
     <Compile Include="Repos\Repo.cs" />
+    <Compile Include="Repos\StockMedicineRepo.cs" />
     <Compile Include="Repos\TokenRepo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +145,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305082145077_MedicinePurchaseDistributor_TableRelationshipFixed-V2.2.resx">
       <DependentUpon>202305082145077_MedicinePurchaseDistributor_TableRelationshipFixed-V2.2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305151946472_StockTableAdded-V-3.0.resx">
+      <DependentUpon>202305151946472_StockTableAdded-V-3.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305151956177_StockTableAdded_FKFixed-V-3.1.resx">
+      <DependentUpon>202305151956177_StockTableAdded_FKFixed-V-3.1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305152010028_StockTableAdded_FKFixed-V-3.2.resx">
+      <DependentUpon>202305152010028_StockTableAdded_FKFixed-V-3.2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305152014322_CategoryMedicine_FKFixed-V-3.3.resx">
+      <DependentUpon>202305152014322_CategoryMedicine_FKFixed-V-3.3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

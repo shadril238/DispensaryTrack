@@ -24,11 +24,11 @@ namespace DAL.Models
         [Required]
         public string Status { get; set; }
 
-        public virtual ICollection<Medicine> Medicines { get; set; }
+        public virtual ICollection<StockMedicine> StockMedicines { get; set; }
 
         public DistributorCompany()
         {
-            Medicines = new List<Medicine>();
+            StockMedicines = new List<StockMedicine>();
         }
     }
 }

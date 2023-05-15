@@ -15,10 +15,10 @@ namespace DAL.Models
         public string Name { get; set; }
         [Required]
         public string Status { get; set; }
-        public virtual ICollection<Medicine> Medicines { get; set; }
+        public virtual ICollection<StockMedicine> StockMedicines { get; set; }
         public Rack()
         {
-            Medicines = new List<Medicine>();
+            StockMedicines = new List<StockMedicine>();
         }
     }
 }

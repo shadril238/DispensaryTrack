@@ -72,6 +72,11 @@ namespace DAL
         {
             return new EmployeeRepo();
         }
+        //StockMedicine
+        public static IRepo<StockMedicine, int, bool> StockMedicineData()
+        {
+            return new StockMedicineRepo();
+        }
 
 
     }

@@ -21,5 +21,6 @@ namespace DAL
         public DbSet<Rack> Racks { get; set; }
         public DbSet<PurchaseMedicine> PurchaseMedicines { get; set; }
         public DbSet<Token> Tokens { get; set; }
+        public DbSet<StockMedicine> StockMedicines { get; set; }
     }
 }
