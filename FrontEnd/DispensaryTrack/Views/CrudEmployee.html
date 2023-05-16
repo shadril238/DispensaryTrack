@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee - DispensaryTrack</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script>
+
+		var app = angular.module("my-app",[]);
+		
+		app.factory('interceptor',[function(){
+			var interceptor = {
+				request:function(config){
+					config.headers.Authorization = localStorage.getItem("tkey");
+					// debugger;
+					return config;
+				},
+				response:function(response){
+					// debugger;
+					return response;
+				}
+			};
+			return interceptor;
+		}]);
+		
+		app.config(function($httpProvider){
+			$httpProvider.interceptors.push('interceptor');
+		});
+		
+		app.controller('EmployeeCtrl',function($scope,$http){
+			$http.get("https://localhost:44338/api/employees").then(function(resp){
+			$scope.employees=resp.data;
+			//alert(Success);
+            //debugger;
+			},function(err){
+
+			});
+            
+            //form action
+            $scope.formAction="Add";
+
+            // update form
+            $scope.editEmployee=function(r){
+                $scope.employee=angular.copy(r);
+                $scope.formAction="Edit";
+            }
+
+            //delete form
+            $scope.deleteEmployee=function(r){
+            $http.post("https://localhost:44338/api/employees/delete/"+r.Email).then(function(resp){
+                debugger;
+                var index = $scope.employees.indexOf(r);
+                $scope.employees.splice(index, 1);
+			},function(err){
+
+			});          
+            }
+            //submitform
+            $scope.submitForm=function(){
+                var v=$scope.employee;
+                if($scope.formAction=="Add"){
+                    $http.post("https://localhost:44338/api/employees/insert",v).then(function(resp){
+					    //alert(Success);
+                        debugger;
+				    },function(err){
+                    
+				    });
+                }
+                else{
+                    $http.post("https://localhost:44338/api/employees/update",v).then(function(resp){
+					    //alert(Success);
+                        debugger;
+				    },function(err){
+                    
+				    });
+                }
+                $scope.clearForm();
+            }
+            //clear form
+            $scope.clearForm = function() {
+                $scope.employee = {Name: '', Email: '',
+                Phone: '', Password: '', JoinDate: '', EmpType: '',  Address: '', Status: 'Inactive', Salary: ''};
+                $scope.formAction = 'Add';
+            }
+			
+		});
+	</script>
+
+	<body ng-app="my-app">
+		<div ng-controller="EmployeeCtrl">
+            <form ng-submit="submitForm()">
+                <label>Name</label>
+                <input type="text" ng-model="employee.Name" required>
+                <input type="hidden" ng-model="employee.Email" required><br>
+                <label>Phone:</label>
+                <input type="text" ng-model="employee.Phone" required><br>
+                <label>Password:</label>
+                <input type="text" ng-model="employee.Password" required><br>
+                <label>Join Date:</label>
+                <input type="text" ng-model="employee.JoinDate" required><br>
+                <label>Employee Type:</label>
+                <input type="text" ng-model="employee.EmpType" required><br>
+                <label>Address:</label>
+                <input type="text" ng-model="employee.Address" required><br>
+                <label>Status:</label>
+                <input type="checkbox" ng-model="employee.Status" ng-true-value="'Active'" ng-false-value="'Inactive'" ng-init="employee.Status='Inactive'">
+                {{employee.Status}}<br>
+                <label>Salary:</label>
+                <input type="text" ng-model="employee.Salary" required><br>
+                <button type="submit">{{formAction}}</button>
+                <button ng-click="clearForm()">Clear</button>
+              </form>
+              <br><br>
+			<table border=1 style="border-collapse: collapse;">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Password</th>
+                    <th>Join Date</th>
+                    <th>Employee Type</th>
+                    <th>Address</th>
+                    <th>Status</th> 
+                    <th>Salary</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="r in employees">
+                    <td>{{ r.Name }}</td>
+                    <td>{{ r.Email }}</td>
+                    <td>{{ r.Phone }}</td>
+                    <td>{{ r.Password }}</td>
+                    <td>{{ r.JoinDate }}</td>
+                    <td>{{ r.EmpType }}</td>
+                    <td>{{ r.Address }}</td>
+                    <td>{{ r.Status }}</td>
+                    <td>{{ r.Salary }}</td>
+                    <td>
+                      <button ng-click="editEmployee(r)">Edit</button>
+                      <button ng-click="deleteEmployee(r)">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+		</div>
+	</body>
+</html>

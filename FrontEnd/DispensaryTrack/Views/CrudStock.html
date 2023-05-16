@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock - DispensaryTrack</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script>
+
+		var app = angular.module("my-app",[]);
+		
+		app.factory('interceptor',[function(){
+			var interceptor = {
+				request:function(config){
+					config.headers.Authorization = localStorage.getItem("tkey");
+					// debugger;
+					return config;
+				},
+				response:function(response){
+					// debugger;
+					return response;
+				}
+			};
+			return interceptor;
+		}]);
+		
+		app.config(function($httpProvider){
+			$httpProvider.interceptors.push('interceptor');
+		});
+		
+		app.controller('StockCtrl',function($scope,$http){
+			$http.get("https://localhost:44338/api/stocks").then(function(resp){
+			$scope.stocks=resp.data;
+			//alert(Success);
+            //debugger;
+			},function(err){
+
+			});
+
+
+            
+            //form action
+            $scope.formAction="Add";
+
+            // update form
+            $scope.editStock=function(r){
+                $scope.stock=angular.copy(r);
+                $scope.formAction="Edit";
+            }
+
+            //delete form
+            $scope.deleteStock=function(r){
+            $http.post("https://localhost:44338/api/stocks/delete/"+r.Id).then(function(resp){
+                debugger;
+                var index = $scope.stocks.indexOf(r);
+                $scope.stocks.splice(index, 1);
+			},function(err){
+
+			});          
+            }
+            //submitform
+            $scope.submitForm=function(){
+                var v=$scope.stock;
+                if($scope.formAction=="Add"){
+                    $http.post("https://localhost:44338/api/stocks/insert",v).then(function(resp){
+					    //alert(Success);
+                        debugger;
+				    },function(err){
+                    
+				    });
+                }
+                else{
+                    $http.post("https://localhost:44338/api/stocks/update",v).then(function(resp){
+					    //alert(Success);
+                        debugger;
+				    },function(err){
+                    
+				    });
+                }
+                $scope.clearForm();
+            }
+            //clear form
+            $scope.clearForm = function() {
+                $scope.stock = {Id: '', MedicineName: '', MedicineGenenricName: '',RackName:'', BuyPrice:'', SalePrice:'', TotalStock:'',ExpireDate:'', Status: 'Inactive'};
+                $scope.formAction = 'Add';
+            }
+			
+		});
+	</script>
+
+	<body ng-app="my-app">
+		<div ng-controller="StockCtrl">
+            <form ng-submit="submitForm()">
+                <input type="hidden" ng-model="stock.Id" required>
+                <input type="hidden" ng-model="stock.MedicineName" required>                <input type="hidden" ng-model="stock.MedicineGenericName" required>
+                <input type="hidden" ng-model="stock.RackName" required>
+                <label>Buy Price:</label>
+                <input type="text" ng-model="stock.BuyPrice" required><br>
+                <label>Sale Name:</label>
+                <input type="text" ng-model="stock.SalePrice" required><br>
+                <label>Total Stock:</label>
+                <input type="text" ng-model="stock.TotalStock" required><br>
+                <label>Expire Date:</label>
+                <input type="text" ng-model="stock.ExpireDate" required><br>
+                <label>Status:</label>
+                <input type="checkbox" ng-model="stock.Status" ng-true-value="'Active'" ng-false-value="'Inactive'" ng-init="stock.Status='Inactive'">
+                {{stock.Status}}<br>
+                <label>Rack ID:</label>
+                <input type="text" ng-model="stock.RackId" ng-init="stock.RackId='4'"><br>
+                <label>Distributor ID:</label>
+                <input type="text" ng-model="stock.DistributorId" ng-init="stock.DistributorId='1'"><br>
+                <label>Medicine ID:</label>
+                <input type="text" ng-model="stock.MedicineId" ng-init="stock.MedicineId='2'"><br>
+                <button type="submit">{{formAction}}</button>
+                <button ng-click="clearForm()">Clear</button>
+              </form>
+              <br><br>
+			<table border=1 style="border-collapse: collapse;">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Generic Name</th>
+                    <th>Rack Name</th>
+                    <th>Buy Price</th>
+                    <th>Sale Price</th>
+                    <th>Total Stock</th>
+                    <th>Expire Date</th>
+                    <th>Status</th>
+                    <th>Rack ID</th>
+                    <th>Distributor ID</th>
+                    <th>Medicine ID</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="r in stocks">
+                    <td>{{ r.Id }}</td>
+                    <td>{{ r.MedicineName }}</td>
+                    <td>{{ r.MedicineGenericName }}</td>
+                    <td>{{ r.RackName }}</td>
+                    <td>{{ r.BuyPrice }}</td>
+                    <td>{{ r.SalePrice }}</td>
+                    <td>{{ r.TotalStock }}</td>
+                    <td>{{ r.ExpireDate }}</td>
+                    <td>{{ r.Status }}</td>
+                    <td>{{ r.RackId }}</td>
+                    <td>{{ r.DistributorId }}</td>
+                    <td>{{ r.MedicineId }}</td>
+                    <td>
+                      <button ng-click="editStock(r)">Edit</button>
+                      <button ng-click="deleteStock(r)">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+		</div>
+	</body>
+</html>

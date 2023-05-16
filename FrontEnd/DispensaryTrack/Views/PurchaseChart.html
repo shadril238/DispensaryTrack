@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Chart- DispensaryTrack</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script>
+
+    var app = angular.module("my-app",[]);
+    
+    app.factory('interceptor',[function(){
+      var interceptor = {
+        request:function(config){
+          config.headers.Authorization = localStorage.getItem("tkey");
+          // debugger;
+          return config;
+        },
+        response:function(response){
+          // debugger;
+          return response;
+        }
+      };
+      return interceptor;
+    }]);
+    
+    app.config(function($httpProvider){
+      $httpProvider.interceptors.push('interceptor');
+    });
+    
+    app.controller('PurchaseReportController', function($scope, $http) {
+  // Function to fetch data from the API endpoint
+  $scope.fetchData = function() {
+    $http.get("https://localhost:44338/api/totalpurchasesperday")
+      .then(function(response) {
+        // On success, extract the data from the response
+        var data = response.data;
+
+        // Extract the necessary data from the DTO and format it for the chart
+        var labels = [];
+        var values = [];
+
+        for (var i = 0; i < data.length; i++) {
+          var dto = data[i];
+          labels.push(dto.Date);
+          values.push(dto.TotalPurchase);
+        }
+
+        // Create the chart using Chart.js
+        var ctx = document.getElementById('chart').getContext('2d');
+        var chart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'Total Purchase',
+              data: values,
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              borderColor: 'rgba(75, 192, 192, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      })
+      .catch(function(error) {
+        console.error('Error:', error);
+      });
+  };
+
+  // Call the fetchData function to retrieve data and create the chart
+  $scope.fetchData();
+});
+
+  </script>
+
+  <body ng-app="my-app">
+    <div ng-controller="PurchaseReportController">
+      <canvas id="chart"></canvas>
+    </div>
+
+  </body>
+</html>

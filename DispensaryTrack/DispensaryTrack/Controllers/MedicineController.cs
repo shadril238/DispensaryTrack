@@ -11,7 +11,7 @@ using System.Web.Http.Cors;
 
 namespace DispensaryTrack.Controllers
 {
-    //[EnableCors("*","*","*")]
+    [EnableCors("*","*","*")]
     public class MedicineController : ApiController
     {
         [HttpGet]

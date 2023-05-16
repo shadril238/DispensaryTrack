@@ -1,97 +1,67 @@
-angular.module('myApp', [])
-  .controller('MyController', function($scope, $http) {
-    $scope.items = []; // Initialize the items array
+<!DOCTYPE html>
+<html lang="en-US">
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Medicine - DispensaryTrack</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script>
+
+    var app = angular.module("my-app",[]);
     
-    // Make a GET request to the API to retrieve the items
-    $http.get('/api/items')
-      .then(function(response) {
-        $scope.items = response.data; // Set the items array to the retrieved data
-      })
-      .catch(function(error) {
-        console.error(error); // Log any errors
+    app.factory('interceptor',[function(){
+      var interceptor = {
+        request:function(config){
+          config.headers.Authorization = localStorage.getItem("tkey");
+          // debugger;
+          return config;
+        },
+        response:function(response){
+          // debugger;
+          return response;
+        }
+      };
+      return interceptor;
+    }]);
+    
+    app.config(function($httpProvider){
+      $httpProvider.interceptors.push('interceptor');
+    });
+    
+    app.controller('PMedicineCtrl',function($scope,$http){
+      $http.get("https://localhost:44338/api/purchasemedicines").then(function(resp){
+      $scope.purchasemedicines=resp.data;
+      //alert(Success);
+            //debugger;
+      },function(err){
+
       });
-    
-    // Define a method to handle the form submission
-    $scope.submitForm = function() {
-      // Send a POST request to the API to insert the selected item
-      $http.post('/api/items', { id: $scope.selectedItem })
-        .then(function(response) {
-          console.log('Item inserted successfully:', response.data);
-          // Do something with the response data
-        })
-        .catch(function(error) {
-          console.error(error); // Log any errors
-        });
-    };
-  });
-  <!DOCTYPE html>
-  <html lang="en-US">
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Add Distributor - DispensaryTrack</title>
-  
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-      <script>
-          var app = angular.module("my-app",[]);
-          
-          app.factory('interceptor',[function(){
-              var interceptor = {
-                  request:function(config){
-                      config.headers.Authorization = localStorage.getItem("tkey");
-                      // debugger;
-                      return config;
-                  },
-                  response:function(response){
-                      // debugger;
-                      return response;
-                  }
-              };
-              return interceptor;
-          }]);
-          
-          app.config(function($httpProvider){
-              $httpProvider.interceptors.push('interceptor');
-          });
-          
-          app.controller('addDistributorCtrl',function($scope,$http){
-              $scope.items=[];
-              $http.get('/api/items').then(function(res) {
-                $scope.items = res.data; // Set the items array to the retrieved data
-                },function(err) {
-                    // Log any errors
-          });
-              $scope.addDistributor=function(){
-                  var v = $scope.l;
-                  
-                  $http.post("https://localhost:44338/api/distributors/insert",v).then(function(resp){
-                      //alert(Success);
-                      debugger;
-                  },function(err){
-                      
-                  });
-                  
-                  
-              };
-          });
-      </script>
-  
-      <body ng-app="my-app">
-          <div ng-controller="purchaseMedicineCtrl">
-              <form ng-submit="purchaseMedicine() ">
-                  <input type="text" ng-model="l.DistName" placeholder="DistName"> <br>
-                  <input type="text" ng-model="l.CompName" placeholder="CompName"> <br>
-                  <input type="text" ng-model="l.Phone" placeholder="Phone"> <br>
-                  <input type="email" ng-model="l.Email" placeholder="Email"> <br>
-                  <input type="address" ng-model="l.Address" placeholder="Address"> <br>
-                  <!-- <input type="checkbox" ng-model="l.Status">
-                  <span ng-if="isChecked" ng-model="">Active</span>
-                  <span ng-if="!isChecked">Inactive</span> -->
-                  <input type="checkbox" ng-model="l.Status" ng-true-value="'Active'" ng-false-value="'Inactive'" ng-init="l.Status='Inactive'">
-                  {{ l.Status }}
-                  <br>
-                  <input type="submit">
-              </form>
-          </div>
-      </body>
-  </html>
+
+      
+    });
+  </script>
+
+  <body ng-app="my-app">
+    <div ng-controller="PMedicineCtrl">
+      <table border=1 style="border-collapse: collapse;">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Total Price</th>
+                    <th>Date</th>
+                    <th>Stock Medicine ID</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="r in purchasemedicines">
+                    <td>{{ r.Id }}</td>
+                    <td>{{ r.TotalPrice }}</td>
+                    <td>{{ r.Date }}</td>
+                    <td>{{ r.StockMedicineId }}</td>
+                  </tr>
+                </tbody>
+              </table>
+    </div>
+  </body>
+</html>

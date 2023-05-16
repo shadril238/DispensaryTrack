@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Order - DispensaryTrack</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script>
+		var app = angular.module("my-app",[]);
+		
+		app.factory('interceptor',[function(){
+			var interceptor = {
+				request:function(config){
+					config.headers.Authorization = localStorage.getItem("tkey");
+					// debugger;
+					return config;
+				},
+				response:function(response){
+					// debugger;
+					return response;
+				}
+			};
+			return interceptor;
+		}]);
+		
+		app.config(function($httpProvider){
+			$httpProvider.interceptors.push('interceptor');
+		});
+		
+		app.controller('ShowOrderCtrl',function($scope,$http){
+				$http.get("https://localhost:44338/api/orders").then(function(resp){
+					$scope.orders=resp.data;
+					//alert(Success);
+                    debugger;
+				},function(err){
+                    
+				});
+				
+				
+		});
+	</script>
+
+	<body ng-app="my-app">
+		<div ng-controller="ShowOrderCtrl">
+			<a ng-href="">Add New Order</a>
+			<table border=1 style="border-collapse: collapse;">
+				<tr>
+					<th>ID</th>
+					<th>Total Amount</th>
+					<th>Order Date</th>
+					<th>Status</th>
+					<th>Employee ID</th>
+					<th>Action</th>
+				</tr>
+    			<tr ng-repeat="r in orders">
+      				<td>{{r.Id}}</td>
+      				<td>{{r.TotalAmt}}</td>
+      				<td>{{r.OrderDate}}</td>
+      				<td>{{r.Status}}</td>
+      				<td>{{r.EmpId}}</td>
+      				<td>
+      					<a ng-href="">Edit</a>
+      					<a>Delete</a>
+      				</td>
+    			</tr>
+			</table>
+		</div>
+	</body>
+</html>

@@ -3,7 +3,7 @@
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Racks - DispensaryTrack</title>
+    <title>Medicine - DispensaryTrack</title>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 	<script>
@@ -29,39 +29,46 @@
 			$httpProvider.interceptors.push('interceptor');
 		});
 		
-		app.controller('RackCtrl',function($scope,$http){
-			$http.get("https://localhost:44338/api/racks").then(function(resp){
-			$scope.racks=resp.data;
+		app.controller('MedicineCtrl',function($scope,$http){
+			$http.get("https://localhost:44338/api/medicines").then(function(resp){
+			$scope.medicines=resp.data;
 			//alert(Success);
             //debugger;
 			},function(err){
 
 			});
+
+
             
             //form action
             $scope.formAction="Add";
 
             // update form
-            $scope.editRack=function(r){
-                $scope.rack=angular.copy(r);
+            $scope.editMedicine=function(r){
+                $scope.medicine=angular.copy(r);
                 $scope.formAction="Edit";
             }
-
+            //catagory 
+            // var vm = this;
+            // $http.get("https://localhost:44338/api/categories").then(function(response) {
+            //     // Store retrieved data in variable
+            //     vm.dropdownData = response.data;
+            // });
             //delete form
-            $scope.deleteRack=function(r){
-            $http.post("https://localhost:44338/api/racks/delete/"+r.Id).then(function(resp){
+            $scope.deleteMedicine=function(r){
+            $http.post("https://localhost:44338/api/medicines/delete/"+r.Id).then(function(resp){
                 debugger;
-                var index = $scope.racks.indexOf(r);
-                $scope.racks.splice(index, 1);
+                var index = $scope.medicines.indexOf(r);
+                $scope.medicines.splice(index, 1);
 			},function(err){
 
 			});          
             }
             //submitform
             $scope.submitForm=function(){
-                var v=$scope.rack;
+                var v=$scope.medicine;
                 if($scope.formAction=="Add"){
-                    $http.post("https://localhost:44338/api/racks/insert",v).then(function(resp){
+                    $http.post("https://localhost:44338/api/medicines/insert",v).then(function(resp){
 					    //alert(Success);
                         debugger;
 				    },function(err){
@@ -69,7 +76,7 @@
 				    });
                 }
                 else{
-                    $http.post("https://localhost:44338/api/racks/update",v).then(function(resp){
+                    $http.post("https://localhost:44338/api/medicines/update",v).then(function(resp){
 					    //alert(Success);
                         debugger;
 				    },function(err){
@@ -80,7 +87,7 @@
             }
             //clear form
             $scope.clearForm = function() {
-                $scope.rack = {Id: '', Name: '', Status: 'Inactive'};
+                $scope.medicine = {Id: '', Name: '', GenenricName: '', Status: 'Inactive'};
                 $scope.formAction = 'Add';
             }
 			
@@ -88,14 +95,18 @@
 	</script>
 
 	<body ng-app="my-app">
-		<div ng-controller="RackCtrl">
+		<div ng-controller="MedicineCtrl">
             <form ng-submit="submitForm()">
-                <input type="hidden" ng-model="rack.Id" required>
+                <input type="hidden" ng-model="medicine.Id" required>
                 <label>Name:</label>
-                <input type="text" ng-model="rack.Name" required><br>
+                <input type="text" ng-model="medicine.Name" required><br>
+                <label>Generic Name:</label>
+                <input type="text" ng-model="medicine.GenericName" required><br>
+                <label>Category ID:</label>
+                <input type="text" ng-model="medicine.CategoryId" ng-init="medicine.CategoryId='1'"><br>
                 <label>Status:</label>
-                <input type="checkbox" ng-model="rack.Status" ng-true-value="'Active'" ng-false-value="'Inactive'" ng-init="rack.Status='Inactive'">
-                {{rack.Status}}<br>
+                <input type="checkbox" ng-model="medicine.Status" ng-true-value="'Active'" ng-false-value="'Inactive'" ng-init="medicine.Status='Inactive'">
+                {{medicine.Status}}<br>
                 <button type="submit">{{formAction}}</button>
                 <button ng-click="clearForm()">Clear</button>
               </form>
@@ -105,18 +116,22 @@
                   <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Generic Name</th>
                     <th>Status</th>
+                    <th>Category ID</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="r in racks">
+                  <tr ng-repeat="r in medicines">
                     <td>{{ r.Id }}</td>
                     <td>{{ r.Name }}</td>
+                    <td>{{ r.GenericName }}</td>
                     <td>{{ r.Status }}</td>
+                    <td>{{ r.CategoryId }}</td>
                     <td>
-                      <button ng-click="editRack(r)">Edit</button>
-                      <button ng-click="deleteRack(r)">Delete</button>
+                      <button ng-click="editMedicine(r)">Edit</button>
+                      <button ng-click="deleteMedicine(r)">Delete</button>
                     </td>
                   </tr>
                 </tbody>
