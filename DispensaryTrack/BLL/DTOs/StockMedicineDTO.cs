@@ -20,7 +20,7 @@ namespace BLL.DTOs
         public int TotalStock { get; set; }
         public DateTime ExpireDate { get; set; }
         public string Status { get; set; }
-        public int PurchaseId { get; set; }
+        //public int PurchaseId { get; set; }
         public int RackId { get; set; }
         public int DistributorId { get; set; }
         public int MedicineId { get; set; }

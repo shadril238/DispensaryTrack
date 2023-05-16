@@ -18,10 +18,12 @@ namespace BLL.Services
             var stocks = DataAccessFactory.StockMedicineData().Get();
             var medicines = DataAccessFactory.MedicineData().Get();
             var racks = DataAccessFactory.RackData().Get();
+            var distributors=DataAccessFactory.DistributorCompanyData().Get();
             //joining stocks with medicines and racks
             var data = from stock in stocks
                        join medicine in medicines on stock.MedicineId equals medicine.Id
                        join rack in racks on stock.RackId equals rack.Id
+                       join disributor in distributors on stock.DistributorId equals disributor.Id
                        where medicine.Status.Equals("Active") && stock.Status.Equals("Active")
                        select new StockMedicineDTO
                        {
@@ -34,16 +36,13 @@ namespace BLL.Services
                            TotalStock= stock.TotalStock,
                            ExpireDate= stock.ExpireDate,
                            Status= stock.Status,
-                           PurchaseId= stock.PurchaseId,
+                           //PurchaseId= stock.PurchaseId,
                            RackId= rack.Id,
                            DistributorId= stock.DistributorId,
                            MedicineId= medicine.Id,
 
                        };
-            List<StockMedicineDTO> stockMedicineDTOs = new List<StockMedicineDTO>();
-            stockMedicineDTOs = (List<StockMedicineDTO>)data;
-
-            return (List<StockMedicineDTO>)data;
+            return data.ToList();
         }
         public static StockMedicineDTO Get(int id)
         {

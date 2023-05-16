@@ -41,3 +41,5 @@ C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrati
 C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.StockTableAdded_FKFixedV31.resources
 C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.StockTableAdded_FKFixedV32.resources
 C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.CategoryMedicine_FKFixedV33.resources
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.V33_BugSolved.resources
+C:\Users\shadr\Desktop\DispensaryTrack\DispensaryTrack\DAL\obj\Debug\DAL.Migrations.StockTablePurchaseTable_PkFkFixed_1to1V34.resources

@@ -28,26 +28,27 @@ namespace BLL.Services
             var bills = DataAccessFactory.BillData().Get();
             var data = bills
                 .Where(b => b.BillDate.Day.Equals(DateTime.Now.Day) && b.BillDate.Month.Equals(DateTime.Now.Month) && b.BillDate.Year.Equals(DateTime.Now.Year))
-                .GroupBy(b => b.BillDate.Month).Select(group => new
-                {
-                    TotalSales = group.Sum(b => b.PaidAmt)
-                }).ToList();
-
-            return Convert.ToDouble(data);
+                .Sum(b => b.PaidAmt);
+            return data;
         }
 
         //Returns Monthly Total Sale
         public static double GetPerMonthTotalSale()
         {
-            var bills = DataAccessFactory.BillData().Get();
-            var data = bills
-                .Where(b => b.BillDate.Month.Equals(DateTime.Now.Month) && b.BillDate.Year.Equals(DateTime.Now.Year))
-                .GroupBy(b => b.BillDate.Month).Select(group => new
-                {
-                    TotalSales = group.Sum(b => b.PaidAmt)
-                }).ToList();
+            //var bills = DataAccessFactory.BillData().Get();
+            //var data = bills
+            //    .Where(b => b.BillDate.Month.Equals(DateTime.Now.Month) && b.BillDate.Year.Equals(DateTime.Now.Year))
+            //    .GroupBy(b => b.BillDate.Month).Select(group => new
+            //    {
+            //        TotalSales = group.Sum(b => b.PaidAmt)
+            //    }).SingleOrDefault();
 
-            return Convert.ToDouble(data);
+            //return data;
+            var bills = DataAccessFactory.BillData().Get();
+            var totalSales = bills
+                .Where(b => b.BillDate.Month.Equals(DateTime.Now.Month) && b.BillDate.Year.Equals(DateTime.Now.Year))
+                .Sum(b => b.PaidAmt);
+            return totalSales;
         }
     }
 }

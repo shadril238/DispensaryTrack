@@ -11,7 +11,7 @@ namespace DispensaryTrack.Controllers
     public class AlertController : ApiController
     {
         [HttpGet]
-        [Route("api/expiredmedicinesalert")]
+        [Route("api/expiremedicinesalert")]
         public HttpResponseMessage ExpireMedicinesAlert()
         {
             try
@@ -25,7 +25,7 @@ namespace DispensaryTrack.Controllers
             }
         }
         [HttpGet]
-        [Route("api/expiredmedicinesalert")]
+        [Route("api/stockmedicinesalert")]
         public HttpResponseMessage StockMedicinesAlert()
         {
             try

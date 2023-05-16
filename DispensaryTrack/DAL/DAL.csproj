@@ -95,6 +95,14 @@
     <Compile Include="Migrations\202305152014322_CategoryMedicine_FKFixed-V-3.3.designer.cs">
       <DependentUpon>202305152014322_CategoryMedicine_FKFixed-V-3.3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305160152117_V3.3_BugSolved.cs" />
+    <Compile Include="Migrations\202305160152117_V3.3_BugSolved.designer.cs">
+      <DependentUpon>202305160152117_V3.3_BugSolved.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305160205046_StockTablePurchaseTable_PkFkFixed_1to1-V3.4.cs" />
+    <Compile Include="Migrations\202305160205046_StockTablePurchaseTable_PkFkFixed_1to1-V3.4.designer.cs">
+      <DependentUpon>202305160205046_StockTablePurchaseTable_PkFkFixed_1to1-V3.4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\Category.cs" />
@@ -157,6 +165,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305152014322_CategoryMedicine_FKFixed-V-3.3.resx">
       <DependentUpon>202305152014322_CategoryMedicine_FKFixed-V-3.3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305160152117_V3.3_BugSolved.resx">
+      <DependentUpon>202305160152117_V3.3_BugSolved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305160205046_StockTablePurchaseTable_PkFkFixed_1to1-V3.4.resx">
+      <DependentUpon>202305160205046_StockTablePurchaseTable_PkFkFixed_1to1-V3.4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

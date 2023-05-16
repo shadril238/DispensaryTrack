@@ -31,13 +31,8 @@ namespace BLL.Services
             var purchase = DataAccessFactory.PurchaseMedicineData().Get();
             var data = purchase
                 .Where(p => p.Date.Month.Equals(DateTime.Now.Month) && p.Date.Year.Equals(DateTime.Now.Year))
-                .GroupBy(p => p.Date.Month)
-                .Select(group => new
-                {
-                    TotalPurchase = group.Sum(p => p.TotalPrice)
-                }).ToList();
-
-            return Convert.ToDouble(data);
+                .Sum(p => p.TotalPrice);
+            return data;
         }
 
         //Returns Monthly Total Purchase
@@ -46,13 +41,8 @@ namespace BLL.Services
             var purchase = DataAccessFactory.PurchaseMedicineData().Get();
             var data = purchase
                 .Where(p => p.Date.Month.Equals(DateTime.Now.Month) && p.Date.Year.Equals(DateTime.Now.Year))
-                .GroupBy(p => p.Date.Month)
-                .Select(group => new
-                {
-                    TotalPurchase = group.Sum(p => p.TotalPrice)
-                }).ToList();
-
-            return Convert.ToDouble(data);
+                .Sum(p => p.TotalPrice);
+            return data;
         }
     }
 }

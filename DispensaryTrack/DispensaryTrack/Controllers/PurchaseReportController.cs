@@ -10,10 +10,10 @@ using System.Web.Http.Cors;
 
 namespace DispensaryTrack.Controllers
 {
-    [EnableCors("*","*","*")]
+    //[EnableCors("*","*","*")]
     public class PurchaseReportController : ApiController
     {
-        [HttpGet, Route("/api/totalpurchasesperday")]
+        [HttpGet, Route("api/totalpurchasesperday")]
         public HttpResponseMessage GetPerDayTotalPurchases()
         {
             try
@@ -27,7 +27,7 @@ namespace DispensaryTrack.Controllers
             }
 
         }
-        [HttpGet, Route("/api/totalpurchaseperday")]
+        [HttpGet, Route("api/totalpurchaseperday")]
         public HttpResponseMessage GetPerDayTotalPurchase()
         {
             try
@@ -41,7 +41,7 @@ namespace DispensaryTrack.Controllers
             }
 
         }
-        [HttpGet, Route("/api/totalpurchasepermonth")]
+        [HttpGet, Route("api/totalpurchasepermonth")]
         public HttpResponseMessage GetPerMonthTotalPurchase()
         {
             try

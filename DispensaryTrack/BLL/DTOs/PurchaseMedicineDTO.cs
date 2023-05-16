@@ -15,5 +15,6 @@ namespace BLL.DTOs
     
         public double TotalPrice { get; set; }
         public DateTime Date { get; set; }
+        public int StockMedicineId { get; set; }
     }
 }

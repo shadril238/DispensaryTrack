@@ -18,7 +18,7 @@ namespace BLL.Services
             //linq joining
             var stockmedicine = Get();
             var data = stockmedicine
-                .Where(sm => sm.ExpireDate.AddDays(-5) >= DateTime.Now && sm.Status.Equals("Active")).ToList();
+                .Where(sm => sm.ExpireDate.AddDays(-5) <= DateTime.Now && sm.Status.Equals("Active")).ToList();
             return data.ToList();
         }
         //Stock Alert

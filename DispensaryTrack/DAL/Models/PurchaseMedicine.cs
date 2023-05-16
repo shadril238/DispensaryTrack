@@ -10,16 +10,14 @@ namespace DAL.Models
 {
     public class PurchaseMedicine
     {
-        [Required, Key]
+        [Key]
         public int Id { get; set; }
         [Required]
         public double TotalPrice { get; set; }
         [Required]
         public DateTime Date { get; set; }
-        public virtual ICollection<StockMedicine> StockMedicines { get; set; }
-        public PurchaseMedicine()
-        {
-            StockMedicines = new List<StockMedicine>();
-        }
+        [Required, ForeignKey("StockMedicine")]
+        public int StockMedicineId { get; set; }
+        public virtual StockMedicine StockMedicine { get; set; }
     }
 }

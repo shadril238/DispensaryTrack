@@ -1,4 +1,5 @@
-﻿using BLL.Services;
+﻿//shadril238
+using BLL.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,21 @@ namespace DispensaryTrack.Controllers
     [EnableCors("*","*","*")]
     public class SalesReportController : ApiController
     {
-        [HttpGet, Route("/api/totalsalesperday")]
+        [HttpGet, Route("api/totalsalesperday")]
+        public HttpResponseMessage GetPerDayTotalSales()
+        {
+            try
+            {
+                var data = SalesReportService.GetPerDayTotalSales();
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+
+        }
+        [HttpGet, Route("api/totalsaleperday")]
         public HttpResponseMessage GetPerDayTotalSale()
         {
             try
@@ -26,7 +41,7 @@ namespace DispensaryTrack.Controllers
             }
 
         }
-        [HttpGet, Route("/api/totalsalepermonth")]
+        [HttpGet, Route("api/totalsalepermonth")]
         public HttpResponseMessage GetPerMonthTotalSale()
         {
             try
@@ -40,8 +55,5 @@ namespace DispensaryTrack.Controllers
             }
 
         }
-
-
-
     }
 }

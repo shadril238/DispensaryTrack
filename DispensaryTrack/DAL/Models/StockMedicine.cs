@@ -10,7 +10,7 @@ namespace DAL.Models
 {
     public class StockMedicine
     {
-        [Key, Required]
+        [Key]
         public int Id { get; set; }
         [Required, ForeignKey("Medicine")]
         public int MedicineId { get; set; }
@@ -25,15 +25,15 @@ namespace DAL.Models
         [Required]
         public string Status { get; set; }
         
-        [Required, ForeignKey("PurchaseMedicine")]
-        public int PurchaseId { get; set; }
+        //[Required, ForeignKey("PurchaseMedicine")]
+        //public int PurchaseId { get; set; }
         [Required, ForeignKey("Rack")]
         public int RackId { get; set; }
         [Required, ForeignKey("DistributorCompany")]
         public int DistributorId { get; set; }
 
         public virtual Rack Rack { get; set; }
-        public virtual PurchaseMedicine PurchaseMedicine { get; set; }
+        //public virtual PurchaseMedicine PurchaseMedicine { get; set; }
         public virtual DistributorCompany DistributorCompany { get; set; }
         public virtual Medicine Medicine { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
