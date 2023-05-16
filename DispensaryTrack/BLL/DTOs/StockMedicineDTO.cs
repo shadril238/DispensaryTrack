@@ -12,7 +12,9 @@ namespace BLL.DTOs
     public class StockMedicineDTO
     {
         public int Id { get; set; }
-        public int MedicineId { get; set; }
+        public string MedicineName { get; set; }
+        public string MedicineGenericName { get; set; }
+        public string RackName { get; set; }
         public float BuyPrice { get; set; }
         public float SalePrice { get; set; }
         public int TotalStock { get; set; }
@@ -21,5 +23,6 @@ namespace BLL.DTOs
         public int PurchaseId { get; set; }
         public int RackId { get; set; }
         public int DistributorId { get; set; }
+        public int MedicineId { get; set; }
     }
 }

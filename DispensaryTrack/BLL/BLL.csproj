@@ -57,8 +57,10 @@
     <Compile Include="DTOs\PerDayTotalSaleDTO.cs" />
     <Compile Include="DTOs\PurchaseMedicineDTO.cs" />
     <Compile Include="DTOs\RackDTO.cs" />
+    <Compile Include="DTOs\StockMedicineDTO.cs" />
     <Compile Include="DTOs\TokenDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AlertService.cs" />
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\BillService.cs" />
     <Compile Include="Services\CategoryService.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="Services\PurchaseReportService.cs" />
     <Compile Include="Services\RackService.cs" />
     <Compile Include="Services\SalesReportService.cs" />
+    <Compile Include="Services\StockMedicineService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
